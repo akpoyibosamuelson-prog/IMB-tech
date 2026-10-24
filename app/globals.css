@@ -1,769 +1,327 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --bg: #070b10;
-  --bg-soft: #101922;
-  --panel: #121b24;
-  --panel-alt: #0c141c;
-  --panel-light: #f8fafc;
-  --ink: #f8fafc;
-  --muted: #cbd5e1;
-  --line: rgba(255, 255, 255, 0.08);
-  --gold: #f4c84f;
-  --gold-deep: #d9a80d;
-  --primary: #f4c84f;
-  --primary-dark: #0b1117;
-  --success: #86efac;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-}
-
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-button, input, select, textarea { font: inherit; }
-
-.imb-page {
-  width: min(1220px, calc(100% - 30px));
-  margin: 0 auto;
-  padding: 24px 0 40px;
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 18px 20px;
-  background: rgba(9, 13, 18, 0.9);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  position: sticky;
-  top: 14px;
-  z-index: 30;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
-}
-
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.logo-circle {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 35%, #0d141b, #050a0e 60%);
-  border: 4px solid var(--gold);
-  display: grid;
-  place-items: center;
-  box-shadow: 0 0 0 8px rgba(244, 200, 79, 0.17);
-}
-
-.logo-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, rgba(244, 200, 79, 0.08), rgba(255,255,255,0.02));
-}
-
-.logo-topline {
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  font-size: 2.4rem;
-  color: var(--gold);
-  text-transform: uppercase;
-}
-
-.logo-main {
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  font-size: 3.5rem;
-  color: var(--gold);
-  line-height: 0.8;
-  text-transform: lowercase;
-}
-
-.logo-tag {
-  font-size: 0.64rem;
-  letter-spacing: 0.2em;
-  color: #fff2b4;
-  margin-top: 10px;
-}
-
-.logo-imb {
-  font-weight: 900;
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 0.94rem;
-  color: var(--muted);
-}
-
-.site-nav a:hover { color: var(--gold); }
-
-.nav-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 12px 18px;
-  font-weight: 700;
-  border: none;
-  transition: 0.2s ease;
-  cursor: pointer;
-}
-
-.btn:hover { transform: translateY(-1px); }
-
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  color: #081118;
-  box-shadow: 0 12px 24px rgba(244, 200, 79, 0.25);
-}
-
-.btn-light {
-  background: white;
-  color: var(--primary-dark);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.hero-band {
-  display: grid;
-  grid-template-columns: 1.04fr 0.96fr;
-  gap: 26px;
-  align-items: center;
-  padding: 36px 0 20px;
-}
-
-.hero-copy {
-  padding: 20px 0;
-}
-
-.eyebrow {
-  margin: 0 0 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--gold);
-}
-
-.hero-copy h1,
-.page-hero h1,
-.auth-header h1,
-.admin-header h1 {
-  margin: 0 0 18px;
-  font-size: clamp(2.6rem, 4vw, 5rem);
-  line-height: 0.98;
-  letter-spacing: -0.08em;
-}
-
-.hero-copy p,
-.page-hero p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  max-width: 640px;
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.quick-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 1fr));
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.quick-stats div {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.quick-stats strong {
-  font-size: 1rem;
-  color: var(--gold);
-}
-
-.quick-stats span {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.hero-image-wrap {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  min-height: 500px;
-  border: 1px solid rgba(244, 200, 79, 0.25);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.28);
-}
-
-.hero-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-height: 500px;
-}
-
-.mini-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.mini-strip div {
-  background: rgba(244, 200, 79, 0.08);
-  border: 1px solid rgba(244, 200, 79, 0.2);
-  border-radius: 18px;
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.mini-strip strong {
-  font-size: 1rem;
-  color: var(--gold);
-}
-
-.mini-strip span {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.content-section,
-.page-shell {
-  padding-top: 88px;
-}
-
-.section-head {
-  max-width: 700px;
-  margin-bottom: 24px;
-}
-
-.section-head h2 {
-  margin: 0;
-  font-size: clamp(2rem, 2.8vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.06em;
-}
-
-.narrow-head { max-width: 560px; }
-
-.service-grid,
-.feature-grid {
-  display: grid;
-  gap: 20px;
-}
-
-.service-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.three-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.four-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-.service-card,
-.info-card,
-.review-card,
-.contact-copy,
-.contact-form,
-.auth-panel,
-.admin-sidebar,
-.admin-main,
-.cta-box {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-}
-
-.service-card {
-  overflow: hidden;
-  box-shadow: 0 16px 30px rgba(0,0,0,0.15);
-}
-
-.service-image-wrap img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.service-copy,
-.info-card,
-.review-card,
-.contact-copy,
-.contact-form,
-.auth-panel,
-.cta-box {
-  padding: 20px 18px;
-}
-
-.service-tag {
-  display: inline-block;
-  background: rgba(244, 200, 79, 0.12);
-  color: var(--gold);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.service-copy h3,
-.info-card h3,
-.review-card h3,
-.contact-copy h2,
-.auth-header h1,
-.admin-header h1,
-.page-hero h1 {
-  margin: 12px 0 10px;
-}
-
-.service-copy p,
-.material-item p,
-.wholesale-card p,
-.text-panel p,
-.review-card p,
-.contact-copy p,
-.contact-meta span,
-.info-card p,
-.page-hero p,
-.auth-panel p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.card-links {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 16px;
-  color: var(--gold);
-  font-weight: 700;
-}
-
-.small-links {
-  font-size: 0.9rem;
-}
-
-.alt-section {
-  background: linear-gradient(180deg, rgba(244, 200, 79, 0.06), rgba(10, 13, 16, 0.0));
-  border-radius: 28px;
-  padding: 30px 20px 0;
-}
-
-.materials-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.material-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px 16px;
-}
-
-.dot {
-  color: var(--gold);
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
-.material-item p {
-  margin: 0;
-}
-
-.center-row {
-  justify-content: center;
-  margin-top: 22px;
-  margin-bottom: 8px;
-}
-
-.split-section,
-.contact-panel,
-.admin-shell {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.text-panel {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 22px 20px;
-}
-
-.text-panel h2 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  font-size: clamp(2rem, 2.5vw, 2.6rem);
-  line-height: 1.1;
-  letter-spacing: -0.05em;
-}
-
-.feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 0;
-  display: grid;
-  gap: 12px;
-}
-
-.feature-list li {
-  position: relative;
-  padding-left: 26px;
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.feature-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--gold);
-  font-weight: 800;
-}
-
-.type-panel {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-content: flex-start;
-  padding: 22px 0;
-}
-
-.type-pill {
-  background: rgba(244, 200, 79, 0.1);
-  border: 1px solid rgba(244, 200, 79, 0.3);
-  color: var(--gold);
-  border-radius: 999px;
-  padding: 12px 16px;
-  font-weight: 700;
-}
-
-.wholesale-grid,
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.review-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-}
-
-.stars {
-  color: var(--gold);
-  margin-bottom: 12px;
-  letter-spacing: 0.18em;
-}
-
-.reviewer {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: 18px;
-}
-
-.reviewer strong {
-  color: var(--ink);
-}
-
-.reviewer span {
-  color: var(--gold);
-  font-size: 0.8rem;
-}
-
-.contact-panel {
-  display: grid;
-  grid-template-columns: 0.96fr 1.04fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.large-contact-panel { grid-template-columns: 0.75fr 1.25fr; }
-
-.contact-copy {
-  background: linear-gradient(180deg, rgba(244, 200, 79, 0.14), rgba(14, 18, 23, 0.9));
-  border: 1px solid rgba(244, 200, 79, 0.25);
-  border-radius: 28px;
-}
-
-.contact-copy h2 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  line-height: 1.08;
-  letter-spacing: -0.06em;
-}
-
-.contact-meta {
-  display: grid;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.contact-form {
-  display: grid;
-  gap: 18px;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.03);
-  padding: 12px 14px;
-  color: var(--ink);
-}
-
-.full-width { width: 100%; }
-
-.site-footer {
-  margin-top: 86px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr;
-  gap: 20px;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.brand-mini {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  color: #081118;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
+import Link from 'next/link';
+import Image from 'next/image';
+
+const services = [
+  {
+    title: 'Electrical Installation',
+    text: 'Safe planning and installation for homes, offices, retail spaces and commercial developments.',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Fault Diagnosis',
+    text: 'Quick investigation and repair for power failures, electrical faults and recurring outages.',
+    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Lighting & Rewiring',
+    text: 'Professional lighting upgrades, rewiring and maintenance for safety and energy efficiency.',
+    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
+  },
+];
+
+const materials = [
+  { name: 'Cables & Wires', type: 'Electrical supply', price: 'From ₦4,500' },
+  { name: 'Switches & Sockets', type: 'Accessories', price: 'From ₦2,000' },
+  { name: 'Circuit Protection', type: 'Safety equipment', price: 'From ₦12,000' },
+  { name: 'Lighting Fittings', type: 'LED & fixtures', price: 'From ₦8,400' },
+];
+
+const steps = [
+  'Share your project, issue or material need',
+  'Receive a tailored recommendation or quote',
+  'Approve and schedule your service or order',
+  'Track progress and receive support',
+];
+
+const faqs = [
+  'Do you support both residential and commercial jobs?',
+  'Can I request a quotation without visiting the office?',
+  'Do you provide wholesale pricing for traders or contractors?',
+  'Can I upload photos of damaged electrical items or installations?',
+];
+
+export default function HomePage() {
+  return (
+    <main className="page-shell">
+      <header className="topbar">
+        <Link href="/" className="branding" aria-label="IMB Tech home">
+          <div className="brand-mark">IMB</div>
+          <div>
+            <div className="brand-name">IMB Tech</div>
+            <div className="brand-tag">Electrical Services & Materials</div>
+          </div>
+        </Link>
+
+        <nav className="nav" aria-label="Main navigation">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+
+        <div className="nav-actions">
+          <Link className="secondary-btn" href="/contact">Request Quote</Link>
+          <Link className="primary-btn" href="/contact">Book a Service</Link>
+        </div>
+      </header>
+
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">Trusted electrical solutions</p>
+          <h1>Reliable power, safe installations, and quality materials.</h1>
+          <p className="lede">
+            IMB Tech helps homes, businesses, contractors and retailers with electrical services,
+            materials supply, quotations and project support.
+          </p>
+
+          <div className="cta-row">
+            <Link className="primary-btn" href="/contact">Book a Service</Link>
+            <Link className="secondary-btn" href="/services">Browse Materials</Link>
+            <Link className="ghost-btn" href="/contact">Contact Us</Link>
+          </div>
+
+          <div className="mini-stats">
+            <div>
+              <strong>Residential</strong>
+              <span>Repairs & installs</span>
+            </div>
+            <div>
+              <strong>Commercial</strong>
+              <span>Site support</span>
+            </div>
+            <div>
+              <strong>Wholesale</strong>
+              <span>Retailer supply</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-visual">
+          <Image
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+            alt="Electrician working on installation"
+            width={1200}
+            height={1200}
+            priority
+          />
+        </div>
+      </section>
+
+      <section className="trust-row">
+        <div><strong>Fast responses</strong><span>Service enquiries handled promptly</span></div>
+        <div><strong>Professional team</strong><span>Skilled electrical support</span></div>
+        <div><strong>Clear quotations</strong><span>Transparent pricing and scope</span></div>
+      </section>
+
+      <section id="services" className="section-block">
+        <div className="section-heading">
+          <p className="eyebrow">What we do</p>
+          <h2>Electrical services for homes, businesses and projects.</h2>
+        </div>
+
+        <div className="card-grid three-up">
+          {services.map((service) => (
+            <article className="service-card" key={service.title}>
+              <div className="card-image-wrap">
+                <Image src={service.image} alt={service.title} width={800} height={600} />
+              </div>
+              <div className="card-copy">
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <div className="card-actions">
+                  <Link href="/contact">Book now</Link>
+                  <Link href="/contact">Get quote</Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="materials" className="section-block alt-block">
+        <div className="section-heading">
+          <p className="eyebrow">Material supply</p>
+          <h2>Electrical materials and fittings for your next project.</h2>
+        </div>
+
+        <div className="card-grid four-up">
+          {materials.map((item) => (
+            <article className="product-card" key={item.name}>
+              <div className="product-tag">{item.type}</div>
+              <h3>{item.name}</h3>
+              <p>{item.price}</p>
+              <button type="button">Add to enquiry</button>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="section-block split-section">
+        <div className="split-copy">
+          <p className="eyebrow">Why IMB Tech</p>
+          <h2>Professional, practical and safety-first electrical support.</h2>
+          <p>
+            We combine technical expertise with responsive customer service to deliver electrical
+            installation, repair, inspection, materials and support for mixed residential and business needs.
+          </p>
+          <ul className="check-list">
+            <li>Responsive booking and quotation support</li>
+            <li>Materials sourcing for homes and commercial users</li>
+            <li>Safety-conscious workmanship and reliable service</li>
+            <li>Clear communication from enquiry to completion</li>
+          </ul>
+        </div>
+
+        <div className="feature-panel">
+          <h3>How it works</h3>
+          <ol>
+            {steps.map((step, index) => (
+              <li key={step}>
+                <span>{index + 1}</span>
+                <p>{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section-block">
+        <div className="section-heading narrow">
+          <p className="eyebrow">Customer confidence</p>
+          <h2>What clients value most.</h2>
+        </div>
+
+        <div className="card-grid three-up">
+          <article className="info-card">
+            <h3>Residential support</h3>
+            <p>Fault finding, lighting, sockets, installations and repairs for homes.</p>
+          </article>
+          <article className="info-card">
+            <h3>Commercial services</h3>
+            <p>Support for shops, offices, facilities and business electrical maintenance needs.</p>
+          </article>
+          <article className="info-card">
+            <h3>Wholesale & retail</h3>
+            <p>Supply support for contractors, traders, retailers and project buyers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="section-block testimonials">
+        <div className="section-heading narrow">
+          <p className="eyebrow">Client feedback</p>
+          <h2>Trusted by people who need dependable electrical support.</h2>
+        </div>
+
+        <div className="testimonial-grid">
+          <blockquote>
+            “Fast response, clear communication and neat workmanship. Highly recommended for electrical work.”
+            <footer>— Homeowner</footer>
+          </blockquote>
+          <blockquote>
+            “We used IMB Tech for a project renewal and the process was smooth from quote to completion.”
+            <footer>— Small business owner</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="faq" className="section-block faq-block">
+        <div className="section-heading narrow">
+          <p className="eyebrow">FAQ</p>
+          <h2>Common questions.</h2>
+        </div>
+
+        <div className="faq-list">
+          {faqs.map((faq) => (
+            <div className="faq-item" key={faq}>
+              <h3>{faq}</h3>
+              <p>
+                We provide tailored support for service requests, materials enquiries, repairs and project-based
+                quotations depending on your requirements.
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="book" className="section-block contact-panel">
+        <div className="contact-copy">
+          <p className="eyebrow">Get started</p>
+          <h2>Request a quote or book an electrical service.</h2>
+          <p>
+            Share your project details and we can advise on service availability, quotation requirements and the
+            best next step.
+          </p>
+          <div className="contact-meta">
+            <span>WhatsApp: Available on request</span>
+            <span>Email: hello@imbtech.example</span>
+            <span>Business contact: To be configured</span>
+          </div>
+        </div>
+
+        <form className="contact-form" action="#" method="post">
+          <label>
+            Full name
+            <input type="text" name="name" placeholder="Your name" />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="Your phone number" />
+          </label>
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="Your email" />
+          </label>
+          <label>
+            Service or enquiry
+            <select name="service">
+              <option>Electrical installation</option>
+              <option>Repair / troubleshooting</option>
+              <option>Lighting upgrade</option>
+              <option>Materials enquiry</option>
+            </select>
+          </label>
+          <label>
+            Project details
+            <textarea name="details" placeholder="Tell us about your electrical need" rows={4} />
+          </label>
+          <button type="submit" className="primary-btn full-width">Send enquiry</button>
+        </form>
+      </section>
+
+      <footer className="site-footer" id="contact">
+        <div>
+          <div className="branding footer-brand">
+            <div className="brand-mark">IMB</div>
+            <div>
+              <div className="brand-name">IMB Tech</div>
+              <div className="brand-tag">Electrical Services & Materials</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Materials</Link>
+        </div>
+
+        <div>
+          <h4>Support</h4>
+          <Link href="/contact">FAQs</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/contact">Bookings</Link>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <span>Business contact to be configured</span>
+          <span>Email: hello@imbtech.example</span>
+          <span>WhatsApp: available on request</span>
+        </div>
+      </footer>
+    </main>
+  );
 }
 
-.site-footer h4 {
-  margin: 0 0 10px;
-  color: var(--gold);
-  letter-spacing: 0.04em;
-}
-
-.site-footer a,
-.site-footer span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-}
-
-.page-shell {
-  width: min(1140px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.page-hero {
-  max-width: 860px;
-  padding-top: 0;
-}
-
-.compact-hero { padding-top: 0; }
-
-.service-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.service-price {
-  font-size: 0.9rem;
-  color: var(--gold);
-  font-weight: 800;
-}
-
-.service-duration {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.product-item a {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--gold);
-  font-weight: 700;
-}
-
-.cta-box {
-  margin-top: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: linear-gradient(180deg, rgba(244, 200, 79, 0.1), rgba(255,255,255,0.02));
-}
-
-.auth-shell {
-  display: grid;
-  place-items: center;
-  min-height: 70vh;
-}
-
-.auth-panel {
-  width: min(480px, 100%);
-}
-
-.auth-header { margin-bottom: 12px; }
-
-.auth-links {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 18px;
-  color: var(--gold);
-  font-size: 0.92rem;
-}
-
-.admin-shell {
-  grid-template-columns: 260px 1fr;
-}
-
-.admin-sidebar {
-  padding: 18px 16px;
-}
-
-.admin-sidebar h3 {
-  margin-top: 0;
-  font-size: 1.5rem;
-}
-
-.admin-sidebar nav {
-  display: grid;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.admin-sidebar nav a {
-  color: var(--muted);
-  padding: 10px 12px;
-  border-radius: 10px;
-}
-
-.admin-sidebar nav a:hover {
-  background: rgba(255,255,255,0.03);
-  color: var(--gold);
-}
-
-.admin-main {
-  padding: 22px 18px;
-}
-
-.admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.stat-card {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  min-height: 120px;
-  justify-content: center;
-}
-
-.stat-card span {
-  color: var(--muted);
-}
-
-.stat-card strong {
-  font-size: clamp(1.6rem, 2vw, 2.2rem);
-}
-
-.activity-list {
-  padding-left: 18px;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-@media (max-width: 960px) {
-  .topbar, .hero-band, .split-section, .contact-panel, .site-footer, .wholesale-grid, .review-grid, .service-grid, .three-up, .two-up, .four-up { grid-template-columns: 1fr; }
-  .topbar { flex-wrap: wrap; justify-content: center; }
-  .site-nav { display: none; }
-  .nav-actions { width: 100%; justify-content: center; }
-  .hero-band, .split-section, .contact-panel { display: grid; }
-  .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .materials-grid { grid-template-columns: 1fr; }
-  .admin-shell { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 620px) {
-  .imb-page { width: min(100% - 18px, 1220px); }
-  .logo-circle { width: 120px; height: 120px; }
-  .logo-main { font-size: 2.5rem; }
-  .logo-topline { font-size: 1.8rem; }
-  .quick-stats, .mini-strip, .service-grid, .review-grid, .wholesale-grid { grid-template-columns: 1fr; }
-  .cta-row, .nav-actions, .auth-links, .admin-header, .cta-box { flex-direction: column; }
-  .btn { width: 100%; }
-}

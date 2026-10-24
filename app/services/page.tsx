@@ -1,70 +1,108 @@
-const serviceList = [
-  {
-    name: 'Electrical installation',
-    duration: '1-3 days',
-    price: 'From ₦45,000',
-    description: 'Power, lighting, and installation work for homes, offices, shops, and new construction needs.',
-  },
-  {
-    name: 'Electrical repairs',
-    duration: 'Same day / 48 hrs',
-    price: 'Quoted',
-    description: 'Repair of sockets, switches, control systems, broken circuits, and electrical faults.',
-  },
-  {
-    name: 'Fault diagnosis',
-    duration: '1 day',
-    price: 'From ₦30,000',
-    description: 'Inspection and identification of electrical issues before repair or redesign work begins.',
-  },
-  {
-    name: 'Lighting installation',
-    duration: '1-2 days',
-    price: 'From ₦25,000',
-    description: 'Interior and exterior fixture installation for home and commercial environments.',
-  },
-  {
-    name: 'Solar installation',
-    duration: '2-5 days',
-    price: 'Quoted',
-    description: 'Residential and commercial solar power installation and setup support with practical planning.',
-  },
-  {
-    name: 'Commercial services',
-    duration: 'Project based',
-    price: 'Quoted',
-    description: 'Electrical support for offices, commercial buildings, shops, and operational facilities.',
-  },
-];
+import Link from 'next/link';
 
-export default function ServicesPage() {
+export default function AboutPage() {
   return (
-    <main className="inner-shell page-shell">
-      <section className="page-hero compact-hero">
-        <p className="eyebrow">Electrical services</p>
-        <h1>Professional electrical support for every property type.</h1>
+    <main className="page-shell info-page">
+      <header className="topbar">
+        <Link href="/" className="branding" aria-label="IMB Tech home">
+          <div className="brand-mark">IMB</div>
+          <div>
+            <div className="brand-name">IMB Tech</div>
+            <div className="brand-tag">Electrical Services & Materials</div>
+          </div>
+        </Link>
+
+        <nav className="nav" aria-label="Main navigation">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+
+        <div className="nav-actions">
+          <Link className="secondary-btn" href="/contact">Request Quote</Link>
+          <Link className="primary-btn" href="/contact">Book a Service</Link>
+        </div>
+      </header>
+
+      <section className="page-header">
+        <p className="eyebrow">About IMB Tech</p>
+        <h1>Built on safety, service and dependable electrical expertise.</h1>
         <p>
-          IMB Tech offers reliable repair, installation, inspection, and material supply services for homes, commercial spaces,
-          and project work.
+          IMB Tech supports residential, commercial and project-based customers with complete electrical
+          solutions, from installation and repairs to materials supply and expert advice.
         </p>
       </section>
 
-      <section className="feature-grid three-up service-list-grid">
-        {serviceList.map((service) => (
-          <div className="info-card service-card" key={service.name}>
-            <div className="service-card-top">
-              <span className="service-price">{service.price}</span>
-              <span className="service-duration">{service.duration}</span>
-            </div>
-            <h3>{service.name}</h3>
-            <p>{service.description}</p>
-            <div className="card-links small-links">
-              <a href="/contact">Book</a>
-              <a href="/contact">Quote</a>
+      <section className="stat-grid">
+        <div className="stat-box">
+          <strong>Residential</strong>
+          <span>Reliable upgrades, repair work and safe installations for homes.</span>
+        </div>
+        <div className="stat-box">
+          <strong>Commercial</strong>
+          <span>Equipment support, inspections and maintenance for business premises.</span>
+        </div>
+        <div className="stat-box">
+          <strong>Wholesale</strong>
+          <span>Supply partnerships for contractors, traders, retailers and project buyers.</span>
+        </div>
+      </section>
+
+      <section className="section-block">
+        <div className="split-section">
+          <div className="split-copy">
+            <p className="eyebrow">Our mission</p>
+            <h2>Deliver practical electrical solutions people can trust.</h2>
+            <p>
+              We focus on clear communication, professional workmanship, quality materials and timely
+              support for every stage of the customer journey.
+            </p>
+          </div>
+          <div className="feature-panel">
+            <h3>What we stand for</h3>
+            <ol>
+              <li><span>1</span><p>Safety-first electrical work and responsible workmanship.</p></li>
+              <li><span>2</span><p>Clear quotations and honest recommendations.</p></li>
+              <li><span>3</span><p>Dependable support for homes, businesses and growing projects.</p></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div>
+          <div className="branding footer-brand">
+            <div className="brand-mark">IMB</div>
+            <div>
+              <div className="brand-name">IMB Tech</div>
+              <div className="brand-tag">Electrical Services & Materials</div>
             </div>
           </div>
-        ))}
-      </section>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+
+        <div>
+          <h4>Support</h4>
+          <Link href="/contact">Bookings</Link>
+          <Link href="/contact">FAQs</Link>
+          <Link href="/contact">Request quote</Link>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <span>Business contact to be configured</span>
+          <span>Email: hello@imbtech.example</span>
+          <span>WhatsApp: available on request</span>
+        </div>
+      </footer>
     </main>
   );
 }
+

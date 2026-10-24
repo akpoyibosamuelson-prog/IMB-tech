@@ -1,56 +1,713 @@
-export default function AboutPage() {
-  return (
-    <main className="inner-shell page-shell">
-      <section className="page-hero compact-hero">
-        <p className="eyebrow">About IMB Tech</p>
-        <h1>Electrical expertise built for homes, businesses, and projects.</h1>
-        <p>
-          IMB Tech provides dependable electrical services, solar support, repairs, and electrical materials for residential,
-          commercial, and project clients. We focus on safe workmanship, practical guidance, and reliable supply.
-        </p>
-      </section>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-      <section className="feature-grid two-up">
-        <div className="info-card">
-          <h3>Our mission</h3>
-          <p>
-            To power communities and businesses with safe, professional, and cost-conscious electrical solutions that are practical
-            and dependable.
-          </p>
-        </div>
-        <div className="info-card">
-          <h3>Our vision</h3>
-          <p>
-            To become the preferred electrical partner for installation, repair, energy solutions, and quality materials supply.
-          </p>
-        </div>
-      </section>
-
-      <section className="feature-grid three-up">
-        <div className="info-card">
-          <h3>Services</h3>
-          <p>Solar installation, wiring, fault diagnosis, repairs, maintenance, lighting, inspections, and commercial support.</p>
-        </div>
-        <div className="info-card">
-          <h3>Supply</h3>
-          <p>Materials for homes, properties, contractors, and projects including cables, breakers, fittings, tools, and accessories.</p>
-        </div>
-        <div className="info-card">
-          <h3>Safety</h3>
-          <p>We prioritise safe installations, code-conscious work, and honest recommendations tailored to each property and project.</p>
-        </div>
-      </section>
-
-      <section className="cta-box">
-        <div>
-          <p className="eyebrow">Need support?</p>
-          <h3>Book a service or request a quotation.</h3>
-        </div>
-        <div className="cta-row">
-          <a href="/contact" className="btn btn-gold">Contact IMB Tech</a>
-          <a href="/services" className="btn btn-light">View services</a>
-        </div>
-      </section>
-    </main>
-  );
+:root {
+  --bg: #f6f9fc;
+  --panel: #ffffff;
+  --panel-soft: #edf4ff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --line: rgba(15, 23, 42, 0.08);
+  --primary: #1d4ed8;
+  --primary-dark: #0f172a;
+  --accent: #38bdf8;
+  --success: #0f766e;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  position: sticky;
+  top: 16px;
+  backdrop-filter: blur(14px);
+  z-index: 20;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 800;
+}
+
+.brand-name {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.brand-tag {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn,
+.ghost-btn,
+.product-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn,
+.product-card button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 14px 28px rgba(29, 78, 216, 0.2);
+}
+
+.primary-btn:hover,
+.product-card button:hover {
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 28px;
+  padding: 48px 0 20px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+  margin: 10px 0 22px;
+  max-width: 620px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.lede {
+  max-width: 580px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.mini-stats div {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-stats strong {
+  font-size: 0.96rem;
+}
+
+.mini-stats span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.hero-visual {
+  padding: 8px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(29, 78, 216, 0.12), rgba(56, 189, 248, 0.05));
+  border: 1px solid rgba(29, 78, 216, 0.12);
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 620px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.trust-row div {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trust-row strong {
+  font-size: 1rem;
+}
+
+.trust-row span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.section-block {
+  padding-top: 90px;
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 0;
+  font-size: clamp(2rem, 2.6vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.narrow {
+  max-width: 540px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.four-up {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.service-card,
+.product-card,
+.info-card,
+.faq-item,
+.contact-form,
+.feature-panel,
+.testimonial-grid blockquote {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.03);
+}
+
+.service-card {
+  overflow: hidden;
+}
+
+.card-image-wrap img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.card-copy {
+  padding: 22px 18px 20px;
+}
+
+.card-copy h3,
+.product-card h3,
+.info-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+}
+
+.card-copy p,
+.product-card p,
+.info-card p,
+.split-copy p,
+.faq-item p,
+.contact-copy p,
+.contact-meta span {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.alt-block {
+  background: linear-gradient(180deg, rgba(29, 78, 216, 0.04), rgba(56, 189, 248, 0.04));
+  border-radius: 28px;
+  padding: 34px 22px 0;
+}
+
+.product-card {
+  padding: 18px 18px 20px;
+}
+
+.product-tag {
+  display: inline-block;
+  background: var(--panel-soft);
+  color: var(--primary);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 10px;
+  margin-bottom: 14px;
+}
+
+.product-card p {
+  margin: 10px 0 18px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 800;
+}
+
+.feature-panel {
+  padding: 24px 22px;
+}
+
+.feature-panel h3 {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+}
+
+.feature-panel ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.feature-panel li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.feature-panel li span {
+  background: var(--panel-soft);
+  color: var(--primary);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.feature-panel li p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.info-card {
+  padding: 20px 18px;
+}
+
+.testimonials {
+  padding-bottom: 10px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.testimonial-grid blockquote {
+  margin: 0;
+  padding: 22px 20px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.testimonial-grid footer {
+  margin-top: 14px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.faq-block {
+  padding-bottom: 30px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 18px;
+}
+
+.faq-item {
+  padding: 22px 22px;
+}
+
+.faq-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.faq-item p {
+  margin: 0;
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: 0.96fr 1.04fr;
+  gap: 24px;
+  align-items: start;
+  padding-top: 80px;
+}
+
+.contact-copy {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(29, 78, 216, 0.84));
+  color: white;
+  border-radius: 28px;
+  padding: 28px 24px;
+}
+
+.contact-copy h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  letter-spacing: -0.05em;
+}
+
+.contact-copy p,
+.contact-meta span {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact-meta {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.contact-form {
+  padding: 24px 18px;
+  display: grid;
+  gap: 18px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 12px 14px;
+  color: var(--ink);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.site-footer {
+  margin-top: 70px;
+  padding: 26px 0 10px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.25fr 0.8fr 0.8fr 1fr;
+  gap: 22px;
+  color: var(--muted);
+}
+
+.footer-brand {
+  margin-top: 10px;
+}
+
+.site-footer h4 {
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.site-footer a,
+.site-footer span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.info-page {
+  padding-top: 32px;
+}
+
+.page-header {
+  text-align: center;
+  padding: 48px 0 20px;
+}
+
+.page-header h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin: 10px 0 14px;
+  letter-spacing: -0.06em;
+}
+
+.page-header p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.stat-grid,
+.service-list,
+.contact-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.stat-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stat-box,
+.service-item,
+.contact-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px 20px;
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.service-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-item h3,
+.contact-card h3 {
+  margin-top: 0;
+}
+
+.service-item p,
+.contact-card p,
+.contact-card li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .split-section,
+  .contact-panel,
+  .three-up,
+  .four-up,
+  .site-footer,
+  .testimonial-grid,
+  .trust-row,
+  .stat-grid,
+  .service-list,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    padding-top: 26px;
+  }
+
+  .hero-visual img {
+    height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .hero-copy h1 {
+    font-size: 2.5rem;
+  }
+
+  .mini-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-row,
+  .nav-actions {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .ghost-btn {
+    width: 100%;
+  }
+}
+
