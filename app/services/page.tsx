@@ -1,6 +1,33 @@
 import Link from 'next/link';
 
-export default function AboutPage() {
+const serviceCatalog = [
+  {
+    title: 'Electrical Installation',
+    description: 'New fitting and installation work for homes, retail spaces, offices and upgrading projects.',
+  },
+  {
+    title: 'Electrical Repairs',
+    description: 'Repair services for faulty wiring, damaged sockets, lights, switches and recurring electrical issues.',
+  },
+  {
+    title: 'Fault Diagnosis &amp; Troubleshooting',
+    description: 'Professional diagnosis of power problems, system faults, tripping circuits and technical issues.',
+  },
+  {
+    title: 'Maintenance',
+    description: 'Preventive electrical maintenance and support to reduce downtime and improve reliability.',
+  },
+  {
+    title: 'Wiring &amp; Rewiring',
+    description: 'Full wiring support, upgrades and rewiring for older or expanding properties.',
+  },
+  {
+    title: 'Lighting',
+    description: 'Interior and exterior lighting installations, replacements and energy-efficient upgrades.',
+  },
+];
+
+export default function ServicesPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
@@ -8,7 +35,7 @@ export default function AboutPage() {
           <div className="brand-mark">IMB</div>
           <div>
             <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
+            <div className="brand-tag">Electrical Services &amp; Materials</div>
           </div>
         </Link>
 
@@ -16,58 +43,33 @@ export default function AboutPage() {
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
+          <Link href="/products">Products</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
         <div className="nav-actions">
           <Link className="secondary-btn" href="/contact">Request Quote</Link>
-          <Link className="primary-btn" href="/contact">Book a Service</Link>
+          <Link className="primary-btn" href="/booking">Book a Service</Link>
         </div>
       </header>
 
       <section className="page-header">
-        <p className="eyebrow">About IMB Tech</p>
-        <h1>Built on safety, service and dependable electrical expertise.</h1>
+        <p className="eyebrow">Electrical services</p>
+        <h1>Solutions for installation, maintenance, upgrades and repairs.</h1>
         <p>
-          IMB Tech supports residential, commercial and project-based customers with complete electrical
-          solutions, from installation and repairs to materials supply and expert advice.
+          IMB Tech offers dependable support for homes, businesses and projects that need safe electrical
+          work, expert guidance and clear communication.
         </p>
       </section>
 
-      <section className="stat-grid">
-        <div className="stat-box">
-          <strong>Residential</strong>
-          <span>Reliable upgrades, repair work and safe installations for homes.</span>
-        </div>
-        <div className="stat-box">
-          <strong>Commercial</strong>
-          <span>Equipment support, inspections and maintenance for business premises.</span>
-        </div>
-        <div className="stat-box">
-          <strong>Wholesale</strong>
-          <span>Supply partnerships for contractors, traders, retailers and project buyers.</span>
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="split-section">
-          <div className="split-copy">
-            <p className="eyebrow">Our mission</p>
-            <h2>Deliver practical electrical solutions people can trust.</h2>
-            <p>
-              We focus on clear communication, professional workmanship, quality materials and timely
-              support for every stage of the customer journey.
-            </p>
-          </div>
-          <div className="feature-panel">
-            <h3>What we stand for</h3>
-            <ol>
-              <li><span>1</span><p>Safety-first electrical work and responsible workmanship.</p></li>
-              <li><span>2</span><p>Clear quotations and honest recommendations.</p></li>
-              <li><span>3</span><p>Dependable support for homes, businesses and growing projects.</p></li>
-            </ol>
-          </div>
-        </div>
+      <section className="service-list">
+        {serviceCatalog.map((item) => (
+          <article className="service-item" key={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <Link href="/booking" className="primary-btn">Book this service</Link>
+          </article>
+        ))}
       </section>
 
       <footer className="site-footer">
@@ -76,7 +78,7 @@ export default function AboutPage() {
             <div className="brand-mark">IMB</div>
             <div>
               <div className="brand-name">IMB Tech</div>
-              <div className="brand-tag">Electrical Services & Materials</div>
+              <div className="brand-tag">Electrical Services &amp; Materials</div>
             </div>
           </div>
         </div>
@@ -85,24 +87,23 @@ export default function AboutPage() {
           <h4>Company</h4>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/products">Products</Link>
         </div>
 
         <div>
           <h4>Support</h4>
-          <Link href="/contact">Bookings</Link>
-          <Link href="/contact">FAQs</Link>
+          <Link href="/booking">Bookings</Link>
           <Link href="/contact">Request quote</Link>
+          <Link href="/faq">Materials enquiry</Link>
         </div>
 
         <div>
           <h4>Contact</h4>
-          <span>Business contact to be configured</span>
-          <span>Email: hello@imbtech.example</span>
+          <span>hello@imbtech.co</span>
+          <span>+27 (0) 11 123 4567</span>
           <span>WhatsApp: available on request</span>
         </div>
       </footer>
     </main>
   );
 }
-

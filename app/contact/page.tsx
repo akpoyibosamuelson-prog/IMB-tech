@@ -1,33 +1,13 @@
 import Link from 'next/link';
 
-const serviceCatalog = [
-  {
-    title: 'Electrical Installation',
-    description: 'New fitting and installation work for homes, retail spaces, offices and upgrading projects.',
-  },
-  {
-    title: 'Electrical Repairs',
-    description: 'Repair services for faulty wiring, damaged sockets, lights, switches and recurring electrical issues.',
-  },
-  {
-    title: 'Fault Diagnosis & Troubleshooting',
-    description: 'Professional diagnosis of power problems, system faults, tripping circuits and technical issues.',
-  },
-  {
-    title: 'Maintenance',
-    description: 'Preventive electrical maintenance and support to reduce downtime and improve reliability.',
-  },
-  {
-    title: 'Wiring & Rewiring',
-    description: 'Full wiring support, upgrades and rewiring for older or expanding properties.',
-  },
-  {
-    title: 'Lighting',
-    description: 'Interior and exterior lighting installations, replacements and energy-efficient upgrades.',
-  },
+const enquiryOptions = [
+  'Domestic electrical works',
+  'Commercial maintenance and inspections',
+  'Materials and supply enquiries',
+  'Project quotations and contractor support',
 ];
 
-export default function ServicesPage() {
+export default function ContactPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
@@ -35,7 +15,7 @@ export default function ServicesPage() {
           <div className="brand-mark">IMB</div>
           <div>
             <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
+            <div className="brand-tag">Electrical Services &amp; Materials</div>
           </div>
         </Link>
 
@@ -43,32 +23,82 @@ export default function ServicesPage() {
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
+          <Link href="/products">Products</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
         <div className="nav-actions">
           <Link className="secondary-btn" href="/contact">Request Quote</Link>
-          <Link className="primary-btn" href="/contact">Book a Service</Link>
+          <Link className="primary-btn" href="/booking">Book a Service</Link>
         </div>
       </header>
 
       <section className="page-header">
-        <p className="eyebrow">Electrical services</p>
-        <h1>Solutions for installation, maintenance, upgrades and repairs.</h1>
+        <p className="eyebrow">Contact IMB Tech</p>
+        <h1>Tell us what you need and we will guide the next step.</h1>
         <p>
-          IMB Tech offers dependable support for homes, businesses and projects that need safe electrical work,
-          expert guidance and clear communication.
+          We help with service bookings, project quotations, materials enquiries and general electrical
+          support for homes, businesses and contractors.
         </p>
       </section>
 
-      <section className="service-list">
-        {serviceCatalog.map((item) => (
-          <article className="service-item" key={item.title}>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <Link href="/contact" className="primary-btn">Book this service</Link>
-          </article>
-        ))}
+      <section className="booking-layout">
+        <form
+          className="booking-form"
+          onSubmit={(event) => event.preventDefault()}
+          aria-label="Contact form"
+        >
+          <label>
+            Full name
+            <input type="text" name="name" placeholder="Your name" />
+          </label>
+
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="you@example.com" />
+          </label>
+
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="+27 00 000 0000" />
+          </label>
+
+          <label>
+            Enquiry type
+            <select name="enquiryType" defaultValue="">
+              <option value="" disabled>
+                Select an option
+              </option>
+              <option>Service booking</option>
+              <option>Project quotation</option>
+              <option>Materials enquiry</option>
+              <option>General support</option>
+            </select>
+          </label>
+
+          <label>
+            Project details
+            <textarea name="details" rows={5} placeholder="Tell us about your project or requirement" />
+          </label>
+
+          <button type="submit" className="primary-btn full-width">
+            Send enquiry
+          </button>
+        </form>
+
+        <aside className="booking-summary">
+          <h3>What we can help with</h3>
+          <ul>
+            {enquiryOptions.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="mini-box">
+            <strong>Contact us directly</strong>
+            <p>hello@imbtech.co</p>
+            <p>+27 (0) 11 123 4567</p>
+          </div>
+        </aside>
       </section>
 
       <footer className="site-footer">
@@ -77,7 +107,7 @@ export default function ServicesPage() {
             <div className="brand-mark">IMB</div>
             <div>
               <div className="brand-name">IMB Tech</div>
-              <div className="brand-tag">Electrical Services & Materials</div>
+              <div className="brand-tag">Electrical Services &amp; Materials</div>
             </div>
           </div>
         </div>
@@ -86,24 +116,23 @@ export default function ServicesPage() {
           <h4>Company</h4>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/products">Products</Link>
         </div>
 
         <div>
           <h4>Support</h4>
-          <Link href="/contact">Bookings</Link>
+          <Link href="/booking">Book a service</Link>
+          <Link href="/faq">FAQs</Link>
           <Link href="/contact">Request quote</Link>
-          <Link href="/contact">Materials enquiry</Link>
         </div>
 
         <div>
           <h4>Contact</h4>
-          <span>Business contact to be configured</span>
-          <span>Email: hello@imbtech.example</span>
-          <span>WhatsApp: available on request</span>
+          <span>hello@imbtech.co</span>
+          <span>+27 (0) 11 123 4567</span>
+          <span>Johannesburg, South Africa</span>
         </div>
       </footer>
     </main>
   );
 }
-
