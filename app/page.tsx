@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const services = [
   {
     title: 'Electrical Installation',
@@ -8,27 +6,29 @@ const services = [
   },
   {
     title: 'Fault Diagnosis',
-    text: 'Quick investigation and repair for power failures, electrical faults and recurring outages.',
+    text: 'Fast troubleshooting for power faults, outages and wiring concerns.',
     image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Lighting & Rewiring',
-    text: 'Professional lighting upgrades, rewiring and maintenance for safety and energy efficiency.',
+    text: 'Energy-efficient upgrades, rewiring, panel work and smart lighting installations.',
     image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
   },
 ];
 
-const materials = [
+const products = [
   { name: 'Cables & Wires', type: 'Electrical supply', price: 'From ₦4,500' },
   { name: 'Switches & Sockets', type: 'Accessories', price: 'From ₦2,000' },
   { name: 'Circuit Protection', type: 'Safety equipment', price: 'From ₦12,000' },
   { name: 'Lighting Fittings', type: 'LED & fixtures', price: 'From ₦8,400' },
+  { name: 'Distribution Boards', type: 'Panel systems', price: 'From ₦18,000' },
+  { name: 'Conduits & Accessories', type: 'Installation items', price: 'From ₦3,500' },
 ];
 
 const steps = [
   'Share your project, issue or material need',
   'Receive a tailored recommendation or quote',
-  'Approve and schedule your service or order',
+  'Approve the scope and schedule your service or order',
   'Track progress and receive support',
 ];
 
@@ -41,9 +41,9 @@ const faqs = [
 
 export default function HomePage() {
   return (
-    <main className="page-shell">
+    <main className="site-shell">
       <header className="topbar">
-        <div className="branding">
+        <div className="brand-wrap">
           <div className="brand-mark">IMB</div>
           <div>
             <div className="brand-name">IMB Tech</div>
@@ -52,20 +52,21 @@ export default function HomePage() {
         </div>
 
         <nav className="nav">
-          <a href="#services">Services</a>
-          <a href="#materials">Materials</a>
-          <a href="#about">About</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/materials">Materials</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
         </nav>
 
         <div className="nav-actions">
-          <a className="secondary-btn" href="#contact">Request Quote</a>
-          <a className="primary-btn" href="#book">Book a Service</a>
+          <a className="btn btn-light" href="/contact">Request Quote</a>
+          <a className="btn btn-primary" href="/contact#book">Book a Service</a>
         </div>
       </header>
 
-      <section className="hero">
+      <section className="hero section">
         <div className="hero-copy">
           <p className="eyebrow">Trusted electrical solutions</p>
           <h1>Reliable power, safe installations, and quality materials.</h1>
@@ -75,9 +76,9 @@ export default function HomePage() {
           </p>
 
           <div className="cta-row">
-            <a className="primary-btn" href="#book">Book a Service</a>
-            <a className="secondary-btn" href="#materials">Browse Materials</a>
-            <a className="ghost-btn" href="#contact">Contact Us</a>
+            <a className="btn btn-primary" href="/contact#book">Book a Service</a>
+            <a className="btn btn-light" href="/materials">Browse Materials</a>
+            <a className="btn btn-ghost" href="/contact">Contact Us</a>
           </div>
 
           <div className="mini-stats">
@@ -97,12 +98,9 @@ export default function HomePage() {
         </div>
 
         <div className="hero-visual">
-          <Image
+          <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
             alt="Electrician working on installation"
-            width={1200}
-            height={1200}
-            priority
           />
         </div>
       </section>
@@ -113,7 +111,7 @@ export default function HomePage() {
         <div><strong>Clear quotations</strong><span>Transparent pricing and scope</span></div>
       </section>
 
-      <section id="services" className="section-block">
+      <section id="services" className="section">
         <div className="section-heading">
           <p className="eyebrow">What we do</p>
           <h2>Electrical services for homes, businesses and projects.</h2>
@@ -123,14 +121,14 @@ export default function HomePage() {
           {services.map((service) => (
             <article className="service-card" key={service.title}>
               <div className="card-image-wrap">
-                <Image src={service.image} alt={service.title} width={800} height={600} />
+                <img src={service.image} alt={service.title} />
               </div>
               <div className="card-copy">
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
                 <div className="card-actions">
-                  <a href="#book">Book now</a>
-                  <a href="#contact">Get quote</a>
+                  <a href="/contact#book">Book now</a>
+                  <a href="/contact">Get quote</a>
                 </div>
               </div>
             </article>
@@ -138,14 +136,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="materials" className="section-block alt-block">
+      <section className="section alt-block">
         <div className="section-heading">
           <p className="eyebrow">Material supply</p>
           <h2>Electrical materials and fittings for your next project.</h2>
         </div>
 
         <div className="card-grid four-up">
-          {materials.map((item) => (
+          {products.map((item) => (
             <article className="product-card" key={item.name}>
               <div className="product-tag">{item.type}</div>
               <h3>{item.name}</h3>
@@ -156,7 +154,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="section-block split-section">
+      <section className="section split-section">
         <div className="split-copy">
           <p className="eyebrow">Why IMB Tech</p>
           <h2>Professional, practical and safety-first electrical support.</h2>
@@ -185,29 +183,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block">
-        <div className="section-heading narrow">
-          <p className="eyebrow">Customer confidence</p>
-          <h2>What clients value most.</h2>
-        </div>
-
-        <div className="card-grid three-up">
-          <article className="info-card">
-            <h3>Residential support</h3>
-            <p>Fault finding, lighting, sockets, installations and repairs for homes.</p>
-          </article>
-          <article className="info-card">
-            <h3>Commercial services</h3>
-            <p>Support for shops, offices, facilities and business electrical maintenance needs.</p>
-          </article>
-          <article className="info-card">
-            <h3>Wholesale & retail</h3>
-            <p>Supply support for contractors, traders, retailers and project buyers.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="section-block testimonials">
+      <section className="section">
         <div className="section-heading narrow">
           <p className="eyebrow">Client feedback</p>
           <h2>Trusted by people who need dependable electrical support.</h2>
@@ -225,7 +201,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="faq" className="section-block faq-block">
+      <section className="section faq-block">
         <div className="section-heading narrow">
           <p className="eyebrow">FAQ</p>
           <h2>Common questions.</h2>
@@ -244,7 +220,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="book" className="section-block contact-panel">
+      <section className="section contact-panel" id="book">
         <div className="contact-copy">
           <p className="eyebrow">Get started</p>
           <h2>Request a quote or book an electrical service.</h2>
@@ -285,13 +261,13 @@ export default function HomePage() {
             Project details
             <textarea name="details" placeholder="Tell us about your electrical need" rows={4} />
           </label>
-          <button type="submit" className="primary-btn full-width">Send enquiry</button>
+          <button type="submit" className="btn btn-primary full-width">Send enquiry</button>
         </form>
       </section>
 
       <footer className="site-footer" id="contact">
         <div>
-          <div className="branding footer-brand">
+          <div className="brand-wrap footer-brand">
             <div className="brand-mark">IMB</div>
             <div>
               <div className="brand-name">IMB Tech</div>
@@ -302,16 +278,16 @@ export default function HomePage() {
 
         <div>
           <h4>Company</h4>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#materials">Materials</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/materials">Materials</a>
         </div>
 
         <div>
           <h4>Support</h4>
-          <a href="#faq">FAQs</a>
-          <a href="#contact">Contact</a>
-          <a href="#book">Bookings</a>
+          <a href="/faq">FAQs</a>
+          <a href="/contact">Contact</a>
+          <a href="/contact#book">Bookings</a>
         </div>
 
         <div>
