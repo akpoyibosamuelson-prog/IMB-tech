@@ -56,4 +56,3 @@ export default function CheckoutSuccessPage({ searchParams }: SuccessPageProps) 
     </main>
   );
 }
-
