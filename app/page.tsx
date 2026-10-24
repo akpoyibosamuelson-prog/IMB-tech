@@ -1,165 +1,162 @@
-const services = [
+const serviceCards = [
   {
-    title: 'Electrical Installation',
-    text: 'Safe planning and installation for homes, offices, retail spaces and commercial developments.',
+    title: 'Solar Installation',
+    text: 'Grid-tied and off-grid solar power systems for homes, offices, shops, and businesses.',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80',
+    tag: 'Clean energy',
+  },
+  {
+    title: 'Electrical Wiring',
+    text: 'Safe residential and commercial wiring, rewiring, cabling, and power distribution upgrades.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80',
+    tag: 'Installation',
+  },
+  {
+    title: 'Repairing & Maintenance',
+    text: 'Electrical fault diagnosis, repair, maintenance, and emergency troubleshooting for all property types.',
     image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+    tag: 'Support',
   },
   {
-    title: 'Fault Diagnosis',
-    text: 'Fast troubleshooting for power faults, outages and wiring concerns.',
-    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Lighting & Rewiring',
-    text: 'Energy-efficient upgrades, rewiring, panel work and smart lighting installations.',
-    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
+    title: 'Electronics Fixing',
+    text: 'Repair and support for electrical appliances, fittings, device connections, and equipment services.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',
+    tag: 'Fix & restore',
   },
 ];
 
-const serviceNeeds = [
-  'Home wiring and rewiring',
-  'Lighting installation',
-  'Power socket and switch replacement',
-  'Commercial electrical maintenance',
-  'Fault diagnosis and repairs',
-  'Generator / inverter connection',
-  'CCTV and security power installation',
+const materialNeeds = [
+  'Solar panels and accessories',
+  'Cables and wires',
+  'Switches and sockets',
+  'Circuit breakers and protection devices',
+  'Lighting fittings and appliances',
+  'Distribution boards and control panels',
+  'Electrical tools and installation materials',
+  'Commercial and industrial supply requirements',
 ];
 
-const products = [
-  { name: 'Cables & Wires', type: 'Electrical supply', price: 'From ₦4,500' },
-  { name: 'Switches & Sockets', type: 'Accessories', price: 'From ₦2,000' },
-  { name: 'Circuit Protection', type: 'Safety equipment', price: 'From ₦12,000' },
-  { name: 'Lighting Fittings', type: 'LED & fixtures', price: 'From ₦8,400' },
-  { name: 'Distribution Boards', type: 'Panel systems', price: 'From ₦18,000' },
-  { name: 'Conduits & Accessories', type: 'Installation items', price: 'From ₦3,500' },
+const businessTypes = [
+  'Personal / Homeowner',
+  'Retail customer',
+  'Business / Commercial',
+  'Wholesaler',
+  'Retailer',
+  'Installer / Contractor',
 ];
 
 const reviews = [
   {
-    quote: 'Fast response, clear communication and neat workmanship. Our property has been more reliable since the installation.',
-    name: 'Amina D.',
+    quote: 'Professional service and very reliable after our solar installation. The work was neat and well explained.',
+    name: 'Ada I.',
     role: 'Homeowner',
   },
   {
-    quote: 'The IMB Tech team handled our office electrical upgrades with professionalism and great coordination.',
-    name: 'Samuel O.',
+    quote: 'IMB Tech solved our wiring issue quickly and helped us set up a safer commercial setup.',
+    name: 'Musa T.',
     role: 'Business owner',
   },
   {
-    quote: 'We ordered materials for a project and the support was quick, accurate and very helpful for follow-up.',
-    name: 'Tosin A.',
+    quote: 'Their materials and support for our electrical needs were timely and very helpful for our work.',
+    name: 'Bose O.',
     role: 'Contractor',
   },
 ];
 
-const steps = [
-  'Share your project, issue or material need',
-  'Receive a tailored recommendation or quote',
-  'Approve the scope and schedule your service or order',
-  'Track progress and receive support',
-];
-
-const faqs = [
-  'Do you support both residential and commercial jobs?',
-  'Can I request a quotation without visiting the office?',
-  'Do you provide wholesale pricing for traders or contractors?',
-  'Can I upload photos of damaged electrical items or installations?',
-];
-
 export default function HomePage() {
   return (
-    <main className="site-shell">
+    <main className="imb-page">
       <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
+        <div className="logo-wrap" aria-label="IMB Tech logo">
+          <div className="logo-circle">
+            <div className="logo-inner">
+              <div className="logo-topline">
+                <span className="logo-imb">IMB</span>
+              </div>
+              <div className="logo-main">tech</div>
+              <div className="logo-tag">POWERING YOUR WORLD</div>
+            </div>
           </div>
         </div>
 
-        <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/materials">Materials</a>
-          <a href="/bookings">Bookings</a>
-          <a href="/enquiries">Enquiries</a>
-          <a href="/reviews">Reviews</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
+        <nav className="site-nav">
+          <a href="#services">Services</a>
+          <a href="#materials">Materials</a>
+          <a href="#wholesale">Wholesale</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
         </nav>
 
         <div className="nav-actions">
-          <a className="btn btn-light" href="/contact">Request Quote</a>
-          <a className="btn btn-primary" href="/contact#book">Book a Service</a>
+          <a className="btn btn-light" href="#contact">Request Quote</a>
+          <a className="btn btn-gold" href="#contact">Book Service</a>
         </div>
       </header>
 
-      <section className="hero section">
+      <section className="hero-band">
         <div className="hero-copy">
-          <p className="eyebrow">Trusted electrical solutions</p>
-          <h1>Reliable power, safe installations, and quality materials.</h1>
-          <p className="lede">
-            IMB Tech helps homes, businesses, contractors and retailers with electrical services,
-            materials supply, quotations and project support.
+          <p className="eyebrow">Solar • Wiring • Repairs • Electrical Materials</p>
+          <h1>Safe electrical systems for homes, businesses, and projects.</h1>
+          <p>
+            IMB Tech delivers trusted solar installation, electrical wiring, maintenance, repairs,
+            electronics fixing, and supply for personal, business, wholesale, and retail needs.
           </p>
 
           <div className="cta-row">
-            <a className="btn btn-primary" href="/bookings">Book a Service</a>
-            <a className="btn btn-light" href="/materials">Browse Materials</a>
-            <a className="btn btn-ghost" href="/contact">Contact Us</a>
+            <a href="#contact" className="btn btn-gold">Book Service</a>
+            <a href="#materials" className="btn btn-light">Enquire for Materials</a>
+            <a href="#wholesale" className="btn btn-ghost">Wholesale & Retail</a>
           </div>
 
-          <div className="mini-stats">
+          <div className="quick-stats">
             <div>
-              <strong>Residential</strong>
-              <span>Repairs & installs</span>
+              <strong>Solar</strong>
+              <span>Installation</span>
             </div>
             <div>
-              <strong>Commercial</strong>
-              <span>Site support</span>
+              <strong>Wiring</strong>
+              <span>Repair & setup</span>
             </div>
             <div>
-              <strong>Wholesale</strong>
-              <span>Retailer supply</span>
+              <strong>Materials</strong>
+              <span>Supply</span>
             </div>
           </div>
         </div>
 
-        <div className="hero-visual">
+        <div className="hero-image-wrap">
           <img
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
-            alt="Electrician working on installation"
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80"
+            alt="Solar energy and electrical installation"
           />
         </div>
       </section>
 
-      <section className="trust-row">
-        <div><strong>Fast responses</strong><span>Service enquiries handled promptly</span></div>
-        <div><strong>Professional team</strong><span>Skilled electrical support</span></div>
-        <div><strong>Clear quotations</strong><span>Transparent pricing and scope</span></div>
+      <section className="mini-strip">
+        <div><strong>Solar solutions</strong><span>Powering homes and businesses</span></div>
+        <div><strong>Electrical wiring</strong><span>Safe and reliable installation</span></div>
+        <div><strong>Repairs</strong><span>Fault correction & support</span></div>
       </section>
 
-      <section id="services" className="section">
-        <div className="section-heading">
-          <p className="eyebrow">What we do</p>
-          <h2>Electrical services for homes, businesses and projects.</h2>
+      <section id="services" className="content-section">
+        <div className="section-head">
+          <p className="eyebrow">Our services</p>
+          <h2>Solar, wiring, repairs and electrical support.</h2>
         </div>
 
-        <div className="card-grid three-up">
-          {services.map((service) => (
+        <div className="service-grid">
+          {serviceCards.map((service) => (
             <article className="service-card" key={service.title}>
-              <div className="card-image-wrap">
+              <div className="service-image-wrap">
                 <img src={service.image} alt={service.title} />
               </div>
-              <div className="card-copy">
+              <div className="service-copy">
+                <span className="service-tag">{service.tag}</span>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-                <div className="card-actions">
-                  <a href="/bookings">Book now</a>
-                  <a href="/contact">Get quote</a>
+                <div className="card-links">
+                  <a href="#contact">Book now</a>
+                  <a href="#materials">Ask for quote</a>
                 </div>
               </div>
             </article>
@@ -167,73 +164,76 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section alt-block">
-        <div className="section-heading">
-          <p className="eyebrow">Services required</p>
-          <h2>Tell us what you need help with.</h2>
+      <section id="materials" className="content-section alt-section">
+        <div className="section-head">
+          <p className="eyebrow">Enquire for materials</p>
+          <h2>Products for homes, commercial projects, and electrical supply needs.</h2>
         </div>
 
-        <div className="service-needs-grid">
-          {serviceNeeds.map((item) => (
-            <div key={item} className="service-need-card">
-              <span>•</span>
+        <div className="materials-grid">
+          {materialNeeds.map((item) => (
+            <div key={item} className="material-item">
+              <span className="dot">•</span>
               <p>{item}</p>
             </div>
           ))}
         </div>
+
+        <div className="cta-row center-row">
+          <a href="#contact" className="btn btn-gold">Enquire for Materials</a>
+          <a href="#contact" className="btn btn-light">Request a Quote</a>
+        </div>
       </section>
 
-      <section id="materials" className="section alt-block">
-        <div className="section-heading">
-          <p className="eyebrow">Material supply</p>
-          <h2>Electrical materials and fittings for your next project.</h2>
+      <section className="content-section split-section">
+        <div className="text-panel">
+          <p className="eyebrow">Who we serve</p>
+          <h2>Personal, retail, commercial, and wholesale support.</h2>
+          <p>
+            Whether you need a home electrical fix, a new solar system, retail materials, or business supply,
+            IMB Tech is built to handle personal and commercial needs with clear support and professional service.
+          </p>
+          <ul className="feature-list">
+            <li>Residential installation and fixing</li>
+            <li>Commercial and property electrical work</li>
+            <li>Retail and wholesale supply support</li>
+            <li>Fast quotation and service response</li>
+          </ul>
         </div>
 
-        <div className="card-grid four-up">
-          {products.map((item) => (
-            <article className="product-card" key={item.name}>
-              <div className="product-tag">{item.type}</div>
-              <h3>{item.name}</h3>
-              <p>{item.price}</p>
-              <button type="button">Add to enquiry</button>
-            </article>
+        <div className="type-panel">
+          {businessTypes.map((type) => (
+            <div key={type} className="type-pill">{type}</div>
           ))}
         </div>
       </section>
 
-      <section id="about" className="section split-section">
-        <div className="split-copy">
-          <p className="eyebrow">Why IMB Tech</p>
-          <h2>Professional, practical and safety-first electrical support.</h2>
-          <p>
-            We combine technical expertise with responsive customer service to deliver electrical
-            installation, repair, inspection, materials and support for mixed residential and business needs.
-          </p>
-          <ul className="check-list">
-            <li>Responsive booking and quotation support</li>
-            <li>Materials sourcing for homes and commercial users</li>
-            <li>Safety-conscious workmanship and reliable service</li>
-            <li>Clear communication from enquiry to completion</li>
-          </ul>
+      <section id="wholesale" className="content-section alt-section">
+        <div className="section-head">
+          <p className="eyebrow">Wholesale & retailer support</p>
+          <h2>For traders, retailers, contractors, and business buyers.</h2>
         </div>
 
-        <div className="feature-panel">
-          <h3>How it works</h3>
-          <ol>
-            {steps.map((step, index) => (
-              <li key={step}>
-                <span>{index + 1}</span>
-                <p>{step}</p>
-              </li>
-            ))}
-          </ol>
+        <div className="wholesale-grid">
+          <div className="wholesale-card">
+            <h3>Wholesale</h3>
+            <p>Bulk supply support for contractors, traders, and project buyers with pricing and product availability support.</p>
+          </div>
+          <div className="wholesale-card">
+            <h3>Retail</h3>
+            <p>Retail item enquiries for homes, offices, shops, and direct customer purchase requests on materials.</p>
+          </div>
+          <div className="wholesale-card">
+            <h3>Business</h3>
+            <p>Service, supply, and project support for commercial buyers, installers, and property managers.</p>
+          </div>
         </div>
       </section>
 
-      <section className="section reviews-section">
-        <div className="section-heading narrow">
+      <section id="reviews" className="content-section">
+        <div className="section-head narrow-head">
           <p className="eyebrow">Customer reviews</p>
-          <h2>Trusted by clients who value dependable service.</h2>
+          <h2>Trusted by clients who need dependable support.</h2>
         </div>
 
         <div className="review-grid">
@@ -250,37 +250,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="faq" className="section faq-block">
-        <div className="section-heading narrow">
-          <p className="eyebrow">FAQ</p>
-          <h2>Common questions.</h2>
-        </div>
-
-        <div className="faq-list">
-          {faqs.map((faq) => (
-            <div className="faq-item" key={faq}>
-              <h3>{faq}</h3>
-              <p>
-                We provide tailored support for service requests, materials enquiries, repairs and project-based
-                quotations depending on your requirements.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="book" className="section contact-panel">
+      <section id="contact" className="content-section contact-panel">
         <div className="contact-copy">
-          <p className="eyebrow">Get started</p>
-          <h2>Request a quote or book an electrical service.</h2>
+          <p className="eyebrow">Contact IMB Tech</p>
+          <h2>Enquire for materials, service, repairs, solar solutions, or wholesale support.</h2>
           <p>
-            Share your project details and we can advise on service availability, quotation requirements and the
-            best next step.
+            Whether you need personal service, a repair, a solar setup, or retail and wholesale materials,
+            let us know what you need and our team will guide you.
           </p>
           <div className="contact-meta">
-            <span>WhatsApp: Available on request</span>
-            <span>Email: hello@imbtech.example</span>
-            <span>Business contact: To be configured</span>
+            <span>📍 Location: To be configured</span>
+            <span>📞 Phone: 08106127461</span>
+            <span>💬 WhatsApp: Available on request</span>
+            <span>✉️ Email: hello@imbtech.example</span>
           </div>
         </div>
 
@@ -298,53 +280,64 @@ export default function HomePage() {
             <input type="email" name="email" placeholder="Your email" />
           </label>
           <label>
-            Service required
+            Customer type
+            <select name="customerType">
+              <option>Personal / homeowner</option>
+              <option>Business / commercial</option>
+              <option>Wholesaler</option>
+              <option>Retailer</option>
+              <option>Contractor</option>
+            </select>
+          </label>
+          <label>
+            Service or material need
             <select name="service">
-              <option>Electrical installation</option>
-              <option>Repair / troubleshooting</option>
-              <option>Lighting upgrade</option>
-              <option>Materials enquiry</option>
-              <option>Commercial service</option>
+              <option>Solar installation</option>
+              <option>Electrical wiring</option>
+              <option>Repair and maintenance</option>
+              <option>Electronics fixing</option>
+              <option>Materials supply</option>
+              <option>Wholesale / retail inquiry</option>
             </select>
           </label>
           <label>
             Project details
-            <textarea name="details" placeholder="Tell us about your electrical need" rows={4} />
+            <textarea name="details" rows={4} placeholder="Tell us what you need" />
           </label>
-          <button type="submit" className="btn btn-primary full-width">Send enquiry</button>
+          <button type="submit" className="btn btn-gold full-width">Send enquiry</button>
         </form>
       </section>
 
-      <footer className="site-footer" id="contact">
+      <footer className="site-footer">
         <div>
-          <div className="brand-wrap footer-brand">
-            <div className="brand-mark">IMB</div>
+          <div className="footer-brand">
+            <div className="brand-mini">IMB</div>
             <div>
               <div className="brand-name">IMB Tech</div>
-              <div className="brand-tag">Electrical Services & Materials</div>
+              <div className="brand-tag">SOLAR • WIRING • REPAIRS</div>
             </div>
           </div>
         </div>
 
         <div>
-          <h4>Company</h4>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/materials">Materials</a>
+          <h4>Quick links</h4>
+          <a href="#services">Services</a>
+          <a href="#materials">Materials</a>
+          <a href="#wholesale">Wholesale</a>
         </div>
 
         <div>
           <h4>Support</h4>
-          <a href="/bookings">Bookings</a>
-          <a href="/enquiries">Enquiries</a>
-          <a href="/faq">FAQs</a>
+          <a href="#contact">Enquiries</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
         </div>
 
         <div>
           <h4>Contact</h4>
-          <span>Business contact to be configured</span>
+          <span>Phone: 08106127461</span>
           <span>Email: hello@imbtech.example</span>
-          <span>WhatsApp: available on request</span>
+          <span>WhatsApp available</span>
         </div>
       </footer>
     </main>
