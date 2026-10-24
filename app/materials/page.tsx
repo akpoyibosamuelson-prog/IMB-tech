@@ -1,53 +1,43 @@
 const products = [
-  { name: 'Cables & Wires', category: 'Electrical supply', price: '₦4,500+', stock: 'In stock' },
-  { name: 'Switches & Sockets', category: 'Accessories', price: '₦2,000+', stock: 'Available' },
-  { name: 'Lighting Fittings', category: 'Lighting', price: '₦8,400+', stock: 'Available' },
-  { name: 'Circuit Breakers', category: 'Safety equipment', price: '₦12,000+', stock: 'Low stock' },
-  { name: 'Distribution Boards', category: 'Panel systems', price: '₦18,000+', stock: 'In stock' },
-  { name: 'Conduits & Accessories', category: 'Installation items', price: '₦3,500+', stock: 'Available' },
+  'Cables and wires',
+  'Switches and sockets',
+  'Lighting and fittings',
+  'Circuit breakers and protection devices',
+  'Distribution boards',
+  'Conduits and accessories',
+  'Electrical tools',
+  'Solar accessories',
+  'Installation materials',
+  'Commercial supply items',
 ];
 
 export default function MaterialsPage() {
   return (
-    <main className="site-shell inner-page">
-      <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
-          </div>
-        </div>
-
-        <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/materials">Materials</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-        </nav>
-
-        <div className="nav-actions">
-          <a className="btn btn-light" href="/contact">Enquire</a>
-        </div>
-      </header>
-
-      <section className="page-hero">
-        <p className="eyebrow">Materials catalogue</p>
-        <h1>Electrical products for homes, projects and commercial supply.</h1>
+    <main className="inner-shell page-shell">
+      <section className="page-hero compact-hero">
+        <p className="eyebrow">Electrical materials</p>
+        <h1>Quality electrical supply for homes, contractors, and businesses.</h1>
+        <p>
+          From basic fittings to project-critical components, IMB Tech can help you source the correct materials for your work.
+        </p>
       </section>
 
-      <section className="card-grid four-up product-list">
+      <section className="feature-grid two-up product-grid">
         {products.map((product) => (
-          <article className="product-card" key={product.name}>
-            <div className="product-tag">{product.category}</div>
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
-            <div className="stock-status">{product.stock}</div>
-            <button type="button">Request quote</button>
-          </article>
+          <div className="info-card product-item" key={product}>
+            <h3>{product}</h3>
+            <p>Available through enquiry, quotation, or direct consultation for suitable project requirements.</p>
+            <a href="/contact">Request availability</a>
+          </div>
         ))}
+      </section>
+
+      <section className="cta-box">
+        <div>
+          <p className="eyebrow">Need a quote?</p>
+          <h3>Tell us your material requirement and quantity.</h3>
+        </div>
+        <a href="/contact" className="btn btn-gold">Send enquiry</a>
       </section>
     </main>
   );

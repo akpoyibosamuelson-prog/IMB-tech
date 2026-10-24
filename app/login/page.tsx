@@ -1,30 +1,28 @@
 export default function LoginPage() {
   return (
-    <main className="site-shell inner-page narrow-layout">
-      <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Business access</div>
-          </div>
+    <main className="inner-shell page-shell auth-shell">
+      <section className="auth-panel">
+        <div className="auth-header">
+          <p className="eyebrow">Secure access</p>
+          <h1>IMB Tech Login</h1>
         </div>
-      </header>
 
-      <section className="login-box">
-        <p className="eyebrow">Secure login</p>
-        <h1>Customer and staff portal</h1>
-        <form className="contact-form login-form" action="#" method="post">
+        <form className="contact-form">
           <label>
             Email address
-            <input type="email" placeholder="name@example.com" />
+            <input type="email" placeholder="name@company.com" />
           </label>
           <label>
             Password
-            <input type="password" placeholder="••••••••" />
+            <input type="password" placeholder="Enter your password" />
           </label>
-          <button type="submit" className="btn btn-primary full-width">Login</button>
+          <button type="submit" className="btn btn-gold full-width">Sign in</button>
         </form>
+
+        <div className="auth-links">
+          <a href="#">Forgot password?</a>
+          <a href="/admin">Owner / admin access</a>
+        </div>
       </section>
     </main>
   );

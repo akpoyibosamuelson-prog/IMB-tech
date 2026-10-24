@@ -1,75 +1,61 @@
 export default function ContactPage() {
   return (
-    <main className="site-shell inner-page">
-      <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
-          </div>
-        </div>
-
-        <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/materials">Materials</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
-        </nav>
-
-        <div className="nav-actions">
-          <a className="btn btn-primary" href="/contact#book">Request quote</a>
-        </div>
-      </header>
-
-      <section className="page-hero">
-        <p className="eyebrow">Contact us</p>
-        <h1>Tell us about your electrical need and we will get back to you.</h1>
+    <main className="inner-shell page-shell">
+      <section className="page-hero compact-hero">
+        <p className="eyebrow">Contact and enquiries</p>
+        <h1>Reach IMB Tech for service, materials, or quotation requests.</h1>
       </section>
 
-      <section className="contact-panel contact-page" id="book">
+      <section className="contact-panel large-contact-panel">
         <div className="contact-copy">
           <p className="eyebrow">Get in touch</p>
-          <h2>Request a quote or book a service.</h2>
-          <p>
-            We are ready to support residential clients, commercial clients, contractors and retailers.
-          </p>
+          <h2>Tell us what you need and we’ll guide you.</h2>
           <div className="contact-meta">
-            <span>Email: hello@imbtech.example</span>
-            <span>Phone: +234 000 000 0000</span>
-            <span>WhatsApp: Available on request</span>
+            <span>📍 Location: To be configured</span>
+            <span>📞 Phone: 08106127461</span>
+            <span>💬 WhatsApp: Available on request</span>
+            <span>✉️ Email: hello@imbtech.example</span>
           </div>
         </div>
 
-        <form className="contact-form" action="#" method="post">
+        <form className="contact-form">
           <label>
             Full name
-            <input type="text" name="name" placeholder="Your name" />
+            <input type="text" placeholder="Your name" />
           </label>
           <label>
             Phone number
-            <input type="tel" name="phone" placeholder="Your phone number" />
+            <input type="tel" placeholder="Your phone number" />
           </label>
           <label>
             Email address
-            <input type="email" name="email" placeholder="Your email" />
+            <input type="email" placeholder="Your email" />
           </label>
           <label>
-            Subject
-            <select name="subject">
-              <option>Service booking</option>
-              <option>Materials enquiry</option>
-              <option>Quotation request</option>
-              <option>Technical support</option>
+            Customer type
+            <select>
+              <option>Personal / homeowner</option>
+              <option>Business / commercial</option>
+              <option>Wholesaler</option>
+              <option>Retailer</option>
+              <option>Contractor</option>
+            </select>
+          </label>
+          <label>
+            Service / requirement
+            <select>
+              <option>Solar installation</option>
+              <option>Electrical repair</option>
+              <option>Materials supply</option>
+              <option>Wholesale / retail inquiry</option>
+              <option>Other</option>
             </select>
           </label>
           <label>
             Message
-            <textarea name="message" rows={5} placeholder="Tell us about your project or requirement" />
+            <textarea rows={4} placeholder="Please describe your request" />
           </label>
-          <button type="submit" className="btn btn-primary full-width">Send enquiry</button>
+          <button type="submit" className="btn btn-gold full-width">Send enquiry</button>
         </form>
       </section>
     </main>
