@@ -16,6 +16,16 @@ const services = [
   },
 ];
 
+const serviceNeeds = [
+  'Home wiring and rewiring',
+  'Lighting installation',
+  'Power socket and switch replacement',
+  'Commercial electrical maintenance',
+  'Fault diagnosis and repairs',
+  'Generator / inverter connection',
+  'CCTV and security power installation',
+];
+
 const products = [
   { name: 'Cables & Wires', type: 'Electrical supply', price: 'From ₦4,500' },
   { name: 'Switches & Sockets', type: 'Accessories', price: 'From ₦2,000' },
@@ -23,6 +33,24 @@ const products = [
   { name: 'Lighting Fittings', type: 'LED & fixtures', price: 'From ₦8,400' },
   { name: 'Distribution Boards', type: 'Panel systems', price: 'From ₦18,000' },
   { name: 'Conduits & Accessories', type: 'Installation items', price: 'From ₦3,500' },
+];
+
+const reviews = [
+  {
+    quote: 'Fast response, clear communication and neat workmanship. Our property has been more reliable since the installation.',
+    name: 'Amina D.',
+    role: 'Homeowner',
+  },
+  {
+    quote: 'The IMB Tech team handled our office electrical upgrades with professionalism and great coordination.',
+    name: 'Samuel O.',
+    role: 'Business owner',
+  },
+  {
+    quote: 'We ordered materials for a project and the support was quick, accurate and very helpful for follow-up.',
+    name: 'Tosin A.',
+    role: 'Contractor',
+  },
 ];
 
 const steps = [
@@ -56,6 +84,9 @@ export default function HomePage() {
           <a href="/about">About</a>
           <a href="/services">Services</a>
           <a href="/materials">Materials</a>
+          <a href="/bookings">Bookings</a>
+          <a href="/enquiries">Enquiries</a>
+          <a href="/reviews">Reviews</a>
           <a href="/faq">FAQ</a>
           <a href="/contact">Contact</a>
         </nav>
@@ -76,7 +107,7 @@ export default function HomePage() {
           </p>
 
           <div className="cta-row">
-            <a className="btn btn-primary" href="/contact#book">Book a Service</a>
+            <a className="btn btn-primary" href="/bookings">Book a Service</a>
             <a className="btn btn-light" href="/materials">Browse Materials</a>
             <a className="btn btn-ghost" href="/contact">Contact Us</a>
           </div>
@@ -127,7 +158,7 @@ export default function HomePage() {
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
                 <div className="card-actions">
-                  <a href="/contact#book">Book now</a>
+                  <a href="/bookings">Book now</a>
                   <a href="/contact">Get quote</a>
                 </div>
               </div>
@@ -137,6 +168,22 @@ export default function HomePage() {
       </section>
 
       <section className="section alt-block">
+        <div className="section-heading">
+          <p className="eyebrow">Services required</p>
+          <h2>Tell us what you need help with.</h2>
+        </div>
+
+        <div className="service-needs-grid">
+          {serviceNeeds.map((item) => (
+            <div key={item} className="service-need-card">
+              <span>•</span>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="materials" className="section alt-block">
         <div className="section-heading">
           <p className="eyebrow">Material supply</p>
           <h2>Electrical materials and fittings for your next project.</h2>
@@ -154,7 +201,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section split-section">
+      <section id="about" className="section split-section">
         <div className="split-copy">
           <p className="eyebrow">Why IMB Tech</p>
           <h2>Professional, practical and safety-first electrical support.</h2>
@@ -183,25 +230,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section reviews-section">
         <div className="section-heading narrow">
-          <p className="eyebrow">Client feedback</p>
-          <h2>Trusted by people who need dependable electrical support.</h2>
+          <p className="eyebrow">Customer reviews</p>
+          <h2>Trusted by clients who value dependable service.</h2>
         </div>
 
-        <div className="testimonial-grid">
-          <blockquote>
-            “Fast response, clear communication and neat workmanship. Highly recommended for electrical work.”
-            <footer>— Homeowner</footer>
-          </blockquote>
-          <blockquote>
-            “We used IMB Tech for a project renewal and the process was smooth from quote to completion.”
-            <footer>— Small business owner</footer>
-          </blockquote>
+        <div className="review-grid">
+          {reviews.map((review) => (
+            <article className="review-card" key={review.name}>
+              <div className="stars">★★★★★</div>
+              <p>“{review.quote}”</p>
+              <div className="reviewer">
+                <strong>{review.name}</strong>
+                <span>{review.role}</span>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="section faq-block">
+      <section id="faq" className="section faq-block">
         <div className="section-heading narrow">
           <p className="eyebrow">FAQ</p>
           <h2>Common questions.</h2>
@@ -220,7 +269,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section contact-panel" id="book">
+      <section id="book" className="section contact-panel">
         <div className="contact-copy">
           <p className="eyebrow">Get started</p>
           <h2>Request a quote or book an electrical service.</h2>
@@ -249,12 +298,13 @@ export default function HomePage() {
             <input type="email" name="email" placeholder="Your email" />
           </label>
           <label>
-            Service or enquiry
+            Service required
             <select name="service">
               <option>Electrical installation</option>
               <option>Repair / troubleshooting</option>
               <option>Lighting upgrade</option>
               <option>Materials enquiry</option>
+              <option>Commercial service</option>
             </select>
           </label>
           <label>
@@ -285,9 +335,9 @@ export default function HomePage() {
 
         <div>
           <h4>Support</h4>
+          <a href="/bookings">Bookings</a>
+          <a href="/enquiries">Enquiries</a>
           <a href="/faq">FAQs</a>
-          <a href="/contact">Contact</a>
-          <a href="/contact#book">Bookings</a>
         </div>
 
         <div>
