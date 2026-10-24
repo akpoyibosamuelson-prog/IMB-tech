@@ -57,12 +57,13 @@ export default function HomePage() {
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
           <Link href="/products">Products</Link>
+          <Link href="/booking">Booking</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
         <div className="nav-actions">
           <Link className="secondary-btn" href="/contact">Request Quote</Link>
-          <Link className="primary-btn" href="/contact">Book a Service</Link>
+          <Link className="primary-btn" href="/booking">Book a Service</Link>
         </div>
       </header>
 
@@ -76,7 +77,7 @@ export default function HomePage() {
           </p>
 
           <div className="cta-row">
-            <Link className="primary-btn" href="/contact">Book a Service</Link>
+            <Link className="primary-btn" href="/booking">Book a Service</Link>
             <Link className="secondary-btn" href="/products">Browse Materials</Link>
             <Link className="ghost-btn" href="/contact">Contact Us</Link>
           </div>
@@ -130,7 +131,7 @@ export default function HomePage() {
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
                 <div className="card-actions">
-                  <Link href="/contact">Book now</Link>
+                  <Link href="/booking">Book now</Link>
                   <Link href="/contact">Get quote</Link>
                 </div>
               </div>
@@ -310,8 +311,8 @@ export default function HomePage() {
 
         <div>
           <h4>Support</h4>
+          <Link href="/booking">Booking</Link>
           <Link href="/contact">FAQs</Link>
-          <Link href="/contact">Contact</Link>
           <Link href="/contact">Bookings</Link>
         </div>
 

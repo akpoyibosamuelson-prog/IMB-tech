@@ -1,45 +1,6 @@
 import Link from 'next/link';
 
-const products = [
-  {
-    name: 'Copper Wiring Cable',
-    category: 'Cables & Wires',
-    price: '₦4,500',
-    description: 'High-quality electrical cable for residential and commercial installations.',
-  },
-  {
-    name: 'Aesthetic Switch Plate',
-    category: 'Switches & Sockets',
-    price: '₦2,000',
-    description: 'Modern socket and switch accessories designed for neat interior finishing.',
-  },
-  {
-    name: 'MCB Protection Unit',
-    category: 'Circuit Protection',
-    price: '₦12,000',
-    description: 'Circuit protection solution for safe and efficient electrical distribution.',
-  },
-  {
-    name: 'LED Panel Light',
-    category: 'Lighting Fittings',
-    price: '₦8,400',
-    description: 'Energy-efficient lighting panel for offices, retail and residential spaces.',
-  },
-  {
-    name: 'Conduit & Accessories',
-    category: 'Conduits',
-    price: '₦6,200',
-    description: 'Installation and protection accessories for safe cable routing.',
-  },
-  {
-    name: 'Insulated Hand Tools',
-    category: 'Electrical Tools',
-    price: '₦15,500',
-    description: 'Professional electrical tools designed for safe installation and repair work.',
-  },
-];
-
-export default function ProductsPage() {
+export default function BookingPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
@@ -56,35 +17,79 @@ export default function ProductsPage() {
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
           <Link href="/products">Products</Link>
+          <Link href="/booking">Booking</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
         <div className="nav-actions">
           <Link className="secondary-btn" href="/contact">Request Quote</Link>
-          <Link className="primary-btn" href="/contact">Book a Service</Link>
+          <Link className="primary-btn" href="/booking">Book a Service</Link>
         </div>
       </header>
 
       <section className="page-header">
-        <p className="eyebrow">Electrical materials</p>
-        <h1>Quality products for homes, businesses and project work.</h1>
+        <p className="eyebrow">Book a service</p>
+        <h1>Request electrical support for your home, office or project.</h1>
         <p>
-          Browse dependable electrical materials and accessories for installation, maintenance, upgrades and site supply.
+          Tell us what is happening and we will guide you on scheduling, pricing and the best next step for your job.
         </p>
       </section>
 
-      <section className="product-grid">
-        {products.map((product) => (
-          <article className="shop-card" key={product.name}>
-            <div className="product-pill">{product.category}</div>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <div className="product-row">
-              <strong>{product.price}</strong>
-              <button type="button" className="primary-btn small-btn">Enquire</button>
-            </div>
-          </article>
-        ))}
+      <section className="booking-layout">
+        <form className="booking-form" action="#" method="post">
+          <label>
+            Full name
+            <input type="text" name="customerName" placeholder="Your full name" />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="Your phone number" />
+          </label>
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="Your email address" />
+          </label>
+          <label>
+            Service required
+            <select name="service">
+              <option>Electrical installation</option>
+              <option>Fault diagnosis</option>
+              <option>Lighting and rewiring</option>
+              <option>Electrical maintenance</option>
+            </select>
+          </label>
+          <label>
+            Preferred date
+            <input type="date" name="preferredDate" />
+          </label>
+          <label>
+            Urgency
+            <select name="urgency">
+              <option>Routine</option>
+              <option>Priority</option>
+              <option>Emergency</option>
+            </select>
+          </label>
+          <label>
+            Project details
+            <textarea name="details" rows={5} placeholder="Describe the problem or installation required" />
+          </label>
+          <button type="submit" className="primary-btn full-width">Submit booking request</button>
+        </form>
+
+        <aside className="booking-summary">
+          <h3>Booking information</h3>
+          <ul>
+            <li>Service requests are reviewed before confirmation.</li>
+            <li>Quotations may be provided for inspection or project work.</li>
+            <li>Uploads and photos can be submitted where needed.</li>
+            <li>Business contact and scheduling details are configured by the owner.</li>
+          </ul>
+          <div className="mini-box">
+            <strong>Need a faster response?</strong>
+            <p>Use WhatsApp or contact us directly for urgent electrical support.</p>
+          </div>
+        </aside>
       </section>
 
       <footer className="site-footer">
@@ -107,9 +112,9 @@ export default function ProductsPage() {
 
         <div>
           <h4>Support</h4>
-          <Link href="/contact">Contact</Link>
+          <Link href="/booking">Booking</Link>
           <Link href="/contact">Request quote</Link>
-          <Link href="/contact">Materials enquiry</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
         <div>
