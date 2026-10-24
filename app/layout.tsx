@@ -3,6 +3,9 @@ import './globals.css';
 export const metadata = {
   title: 'IMB Tech | Electrical Services & Materials',
   description: 'Professional electrical services, materials supply, quotations and business support for homes, offices and contractors.',
+  icons: {
+    icon: '/imb-logo.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

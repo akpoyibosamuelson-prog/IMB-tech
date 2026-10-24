@@ -50,11 +50,7 @@ export default function HomePage() {
     <main className="page-shell">
       <header className="topbar">
         <Link href="/" className="branding" aria-label="IMB Tech home">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
-          </div>
+          <img src="/imb-logo.svg" alt="IMB Tech logo" className="brand-logo" />
         </Link>
 
         <nav className="nav" aria-label="Main navigation">
@@ -274,11 +270,7 @@ export default function HomePage() {
       <footer className="site-footer">
         <div>
           <Link href="/" className="branding footer-brand">
-            <div className="brand-mark">IMB</div>
-            <div>
-              <div className="brand-name">IMB Tech</div>
-              <div className="brand-tag">Electrical Services & Materials</div>
-            </div>
+            <img src="/imb-logo.svg" alt="IMB Tech logo" className="brand-logo" />
           </Link>
           <p>
             Electrical services, materials and project support for homes,
