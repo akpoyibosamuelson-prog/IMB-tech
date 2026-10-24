@@ -83,9 +83,9 @@ export default function HomePage() {
           </h1>
 
           <p className="hero-description">
-            IMB Tech connects homes, businesses, contractors and retailers
-            with electrical services, material enquiries, project quotations
-            and convenient service bookings.
+            IMB Tech connects homes, businesses, contractors and retailers with
+            electrical services, material enquiries, project quotations and convenient
+            service bookings.
           </p>
 
           <div className="hero-actions">
@@ -117,8 +117,8 @@ export default function HomePage() {
               <h3>From enquiry to completion.</h3>
             </div>
             <p>
-              Discuss your needs, request a quotation, arrange a service
-              and keep track of the next steps.
+              Discuss your needs, request a quotation, arrange a service and keep
+              track of the next steps.
             </p>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
         </div>
         <div>
           <strong>03</strong>
-          <span>Retail & Wholesale</span>
+          <span>Retail &amp; Wholesale</span>
         </div>
         <div>
           <strong>04</strong>
@@ -174,9 +174,9 @@ export default function HomePage() {
           <p className="eyebrow">ELECTRICAL MATERIALS</p>
           <h2>Get the right materials for the job.</h2>
           <p>
-            Looking for electrical cables, switches, sockets, lighting,
-            protection equipment or installation accessories? Browse
-            available products or request a quotation for your materials list.
+            Looking for electrical cables, switches, sockets, lighting, protection
+            equipment or installation accessories? Browse available products or
+            request a quotation for your materials list.
           </p>
           <div className="hero-actions">
             <Link href="/products" className="primary-btn">
@@ -211,8 +211,8 @@ export default function HomePage() {
             </div>
           </div>
           <p className="availability-note">
-            Product availability and pricing should be confirmed before
-            an order is finalised.
+            Product availability and pricing should be confirmed before an order is
+            finalised.
           </p>
         </div>
       </section>
@@ -235,11 +235,7 @@ export default function HomePage() {
               <p>{feature.description}</p>
               <Link
                 href={
-                  index === 0
-                    ? "/products"
-                    : index === 1
-                      ? "/booking"
-                      : "/contact"
+                  index === 0 ? "/products" : index === 1 ? "/booking" : "/contact"
                 }
                 className="text-link"
               >
@@ -254,8 +250,8 @@ export default function HomePage() {
         <p className="eyebrow">LET'S DISCUSS YOUR PROJECT</p>
         <h2>Have a job to complete or materials to source?</h2>
         <p>
-          Tell us what you need. Request a service appointment, ask about
-          electrical materials or discuss your project requirements.
+          Tell us what you need. Request a service appointment, ask about electrical
+          materials or discuss your project requirements.
         </p>
         <div className="hero-actions">
           <Link href="/contact" className="primary-btn">
@@ -273,8 +269,8 @@ export default function HomePage() {
             <img src="/imb-logo.svg" alt="IMB Tech logo" className="brand-logo" />
           </Link>
           <p>
-            Electrical services, materials and project support for homes,
-            businesses and contractors.
+            Electrical services, materials and project support for homes, businesses
+            and contractors.
           </p>
         </div>
 
@@ -295,15 +291,13 @@ export default function HomePage() {
         <div>
           <h4>Business Portal</h4>
           <p>
-            Inventory, orders, bookings and payment management can be
-            provided through a separate secured owner dashboard.
+            Inventory, orders, bookings and payment management can be provided through
+            a separate secured owner dashboard.
           </p>
         </div>
       </footer>
 
-      <div className="copyright">
-        © {new Date().getFullYear()} IMB Tech. All rights reserved.
-      </div>
+      <div className="copyright">© {new Date().getFullYear()} IMB Tech. All rights reserved.</div>
     </main>
   );
 }
