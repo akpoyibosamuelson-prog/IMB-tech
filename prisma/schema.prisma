@@ -1,0 +1,275 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  RETAILER
+  WHOLESALER
+  STAFF
+  ADMIN
+  OWNER
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+}
+
+enum BookingStatus {
+  NEW_REQUEST
+  AWAITING_REVIEW
+  QUOTATION_PENDING
+  AWAITING_CUSTOMER_APPROVAL
+  CONFIRMED
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  RESCHEDULED
+}
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  VIEWED
+  AWAITING_APPROVAL
+  ACCEPTED
+  REJECTED
+  EXPIRED
+  CONVERTED_TO_JOB
+  CONVERTED_TO_ORDER
+}
+
+enum OrderStatus {
+  PENDING
+  AWAITING_PAYMENT
+  PAYMENT_VERIFICATION_PENDING
+  PAID
+  CONFIRMED
+  PROCESSING
+  READY_FOR_DISPATCH
+  DISPATCHED
+  DELIVERED
+  PARTIALLY_FULFILLED
+  CANCELLED
+  REFUNDED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  ISSUED
+  PARTIALLY_PAID
+  PAID
+  OVERDUE
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  UNPAID
+  PENDING
+  VERIFICATION_PENDING
+  PAID
+  PARTIALLY_PAID
+  FAILED
+  OVERDUE
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+model User {
+  id            String      @id @default(cuid())
+  name          String
+  email         String      @unique
+  passwordHash  String
+  phone         String?
+  role          Role        @default(CUSTOMER)
+  businessName  String?
+  status        UserStatus  @default(ACTIVE)
+  createdAt     DateTime    @default(now())
+  bookings      Booking[]
+  orders        Order[]
+  enquiries     Enquiry[]
+  invoices      Invoice[]
+  expenses      Expense[]
+  notifications Notification[]
+}
+
+model Service {
+  id             String    @id @default(cuid())
+  name           String
+  description    String
+  category       String
+  startingPrice  Float?
+  priceType      String
+  duration       String
+  availability   String
+  imageUrl       String?
+  active         Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  bookings       Booking[]
+}
+
+model Product {
+  id               String      @id @default(cuid())
+  name             String
+  description      String
+  category         String
+  sku              String      @unique
+  brand            String?
+  specifications   String?
+  unit             String?
+  retailPrice      Float
+  wholesalePrice   Float?
+  stock            Int         @default(0)
+  minWholesaleQty  Int         @default(1)
+  supplier         String?
+  status           String      @default("active")
+  imageUrl         String?
+  createdAt        DateTime    @default(now())
+  orderItems       OrderItem[]
+  stockMovements   StockMovement[]
+}
+
+model Booking {
+  id                 String        @id @default(cuid())
+  reference          String        @unique
+  customerName       String
+  phone              String
+  email              String
+  serviceId          String?
+  service            Service?      @relation(fields: [serviceId], references: [id])
+  userId             String?
+  user               User?         @relation(fields: [userId], references: [id])
+  problemDescription String
+  location           String?
+  preferredDate      String?
+  preferredTime      String?
+  propertyType       String?
+  urgency            String?
+  contactMethod      String?
+  notes              String?
+  status             BookingStatus @default(NEW_REQUEST)
+  priceText          String?
+  createdAt          DateTime      @default(now())
+}
+
+model Enquiry {
+  id           String   @id @default(cuid())
+  reference    String   @unique
+  name         String
+  phone        String?
+  email        String
+  customerType String?
+  subject      String
+  message      String
+  productName  String?
+  serviceName  String?
+  attachments  String?
+  preferredContact String?
+  consent      Boolean @default(false)
+  userId       String?
+  user         User?    @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+model Quote {
+  id               String       @id @default(cuid())
+  reference        String       @unique
+  customerName     String
+  customerEmail    String
+  subject          String
+  totalAmount      Float
+  status           QuoteStatus @default(DRAFT)
+  validityDays     Int?
+  notes            String?
+  createdAt        DateTime     @default(now())
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  reference      String      @unique
+  userId         String?
+  user           User?       @relation(fields: [userId], references: [id])
+  customerName   String
+  email          String
+  phone          String
+  totalAmount    Float
+  status         OrderStatus @default(PENDING)
+  notes          String?
+  createdAt      DateTime    @default(now())
+  orderItems     OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id])
+  name      String
+  quantity  Int
+  unitPrice Float
+  total     Float
+}
+
+model Invoice {
+  id             String        @id @default(cuid())
+  number         String        @unique
+  customerName   String
+  customerEmail  String
+  amountDue      Float
+  amountPaid     Float         @default(0)
+  status         InvoiceStatus @default(ISSUED)
+  dueDate        DateTime?
+  userId         String?
+  user           User?         @relation(fields: [userId], references: [id])
+  createdAt      DateTime      @default(now())
+}
+
+model Expense {
+  id           String   @id @default(cuid())
+  title        String
+  category     String
+  amount       Float
+  date         DateTime
+  description  String?
+  paymentMethod String?
+  supplier     String?
+  receiptUrl   String?
+  userId       String?
+  user         User?    @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+model StockMovement {
+  id         String    @id @default(cuid())
+  productId  String
+  product    Product   @relation(fields: [productId], references: [id])
+  quantity   Int
+  reason     String
+  createdAt  DateTime  @default(now())
+}
+
+model Notification {
+  id         String   @id @default(cuid())
+  title      String
+  message    String
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  createdAt  DateTime @default(now())
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  action     String
+  details    String?
+  createdAt  DateTime @default(now())
+}
