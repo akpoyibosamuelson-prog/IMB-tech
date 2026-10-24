@@ -1,6 +1,45 @@
 import Link from 'next/link';
 
-export default function ContactPage() {
+const products = [
+  {
+    name: 'Copper Wiring Cable',
+    category: 'Cables & Wires',
+    price: '₦4,500',
+    description: 'High-quality electrical cable for residential and commercial installations.',
+  },
+  {
+    name: 'Aesthetic Switch Plate',
+    category: 'Switches & Sockets',
+    price: '₦2,000',
+    description: 'Modern socket and switch accessories designed for neat interior finishing.',
+  },
+  {
+    name: 'MCB Protection Unit',
+    category: 'Circuit Protection',
+    price: '₦12,000',
+    description: 'Circuit protection solution for safe and efficient electrical distribution.',
+  },
+  {
+    name: 'LED Panel Light',
+    category: 'Lighting Fittings',
+    price: '₦8,400',
+    description: 'Energy-efficient lighting panel for offices, retail and residential spaces.',
+  },
+  {
+    name: 'Conduit & Accessories',
+    category: 'Conduits',
+    price: '₦6,200',
+    description: 'Installation and protection accessories for safe cable routing.',
+  },
+  {
+    name: 'Insulated Hand Tools',
+    category: 'Electrical Tools',
+    price: '₦15,500',
+    description: 'Professional electrical tools designed for safe installation and repair work.',
+  },
+];
+
+export default function ProductsPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
@@ -16,6 +55,7 @@ export default function ContactPage() {
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
+          <Link href="/products">Products</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
@@ -26,54 +66,25 @@ export default function ContactPage() {
       </header>
 
       <section className="page-header">
-        <p className="eyebrow">Contact IMB Tech</p>
-        <h1>Request a quote, book a service or enquire about materials.</h1>
+        <p className="eyebrow">Electrical materials</p>
+        <h1>Quality products for homes, businesses and project work.</h1>
         <p>
-          Use the form below to share your requirements and we will guide you on the right next step for your
-          electrical job or supply need.
+          Browse dependable electrical materials and accessories for installation, maintenance, upgrades and site supply.
         </p>
       </section>
 
-      <section className="contact-grid">
-        <div className="contact-card">
-          <h3>Contact details</h3>
-          <p>Business contact information can be updated by the owner when fully configured.</p>
-          <ul>
-            <li>Email: hello@imbtech.example</li>
-            <li>Phone: Available on request</li>
-            <li>WhatsApp: Available on request</li>
-            <li>Service area: Residential & commercial support</li>
-          </ul>
-        </div>
-
-        <form className="contact-form" action="#" method="post">
-          <label>
-            Full name
-            <input type="text" name="name" placeholder="Your name" />
-          </label>
-          <label>
-            Phone number
-            <input type="tel" name="phone" placeholder="Your phone number" />
-          </label>
-          <label>
-            Email address
-            <input type="email" name="email" placeholder="Your email" />
-          </label>
-          <label>
-            Service or enquiry
-            <select name="service">
-              <option>Electrical installation</option>
-              <option>Repair / troubleshooting</option>
-              <option>Lighting upgrade</option>
-              <option>Materials enquiry</option>
-            </select>
-          </label>
-          <label>
-            Project details
-            <textarea name="details" placeholder="Tell us about your electrical need" rows={4} />
-          </label>
-          <button type="submit" className="primary-btn full-width">Send enquiry</button>
-        </form>
+      <section className="product-grid">
+        {products.map((product) => (
+          <article className="shop-card" key={product.name}>
+            <div className="product-pill">{product.category}</div>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <div className="product-row">
+              <strong>{product.price}</strong>
+              <button type="button" className="primary-btn small-btn">Enquire</button>
+            </div>
+          </article>
+        ))}
       </section>
 
       <footer className="site-footer">
@@ -91,14 +102,14 @@ export default function ContactPage() {
           <h4>Company</h4>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/products">Products</Link>
         </div>
 
         <div>
           <h4>Support</h4>
-          <Link href="/services">Service list</Link>
+          <Link href="/contact">Contact</Link>
           <Link href="/contact">Request quote</Link>
-          <Link href="/contact">Booking support</Link>
+          <Link href="/contact">Materials enquiry</Link>
         </div>
 
         <div>
@@ -111,4 +122,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
