@@ -9,7 +9,8 @@ export default function AdminPage() {
           <a href="#">Dashboard</a>
           <a href="#">Bookings</a>
           <a href="#">Quotations</a>
-          <a href="#">Inventory</a>
+          <a href="#inventory">Inventory</a>
+          <a href="#expenses">Expenses</a>
           <a href="#">Orders</a>
           <a href="#">Invoices</a>
           <a href="#">Customers</a>
@@ -50,6 +51,22 @@ export default function AdminPage() {
             <li>No recent activity yet.</li>
             <li>New enquiries and bookings will appear here.</li>
             <li>Inventory and payment updates will be tracked automatically once active data is connected.</li>
+          </ul>
+        </div>
+
+        <div className="info-card table-card" id="inventory">
+          <h3>Inventory</h3>
+          <ul className="activity-list">
+            <li>No stock items recorded yet.</li>
+            <li>Solar panels, inverters, batteries, cables and accessories will be listed here with quantities.</li>
+          </ul>
+        </div>
+
+        <div className="info-card table-card" id="expenses">
+          <h3>Expenses</h3>
+          <ul className="activity-list">
+            <li>No expenses recorded yet.</li>
+            <li>Material purchases, transport and labour costs will be tracked here.</li>
           </ul>
         </div>
       </section>

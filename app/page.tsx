@@ -1,6 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Cable, ShieldCheck, Sun, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Boxes,
+  Cable,
+  MapPin,
+  Phone,
+  ReceiptText,
+  ShieldCheck,
+  Star,
+  Store,
+  Sun,
+  Wrench,
+  Zap,
+} from "lucide-react";
 import BrandLogo from "./components/BrandLogo";
+import RatingPreview from "./components/RatingPreview";
 
 const services = [
   {
@@ -60,7 +75,7 @@ const features = [
 
 export default function HomePage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell brand-theme">
       <header className="topbar">
         <BrandLogo className="branding" priority />
 
@@ -69,84 +84,121 @@ export default function HomePage() {
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
           <Link href="/products">Products</Link>
+          <Link href="/catalogue">Catalogue</Link>
           <Link href="/booking">Booking</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
-        <div className="nav-actions">
-          <Link href="/contact" className="secondary-btn">
-            Request Quote
+        <nav className="corner-nav" aria-label="Business navigation">
+          <Link href="/catalogue" className="corner-link corner-link-primary">
+            <Store aria-hidden="true" size={16} />
+            Marketplace
           </Link>
-          <Link href="/booking" className="primary-btn">
-            Book a Service
+          <Link href="/admin#inventory" className="corner-link">
+            <Boxes aria-hidden="true" size={16} />
+            Inventory
           </Link>
-        </div>
+          <Link href="/admin#expenses" className="corner-link">
+            <ReceiptText aria-hidden="true" size={16} />
+            Expenses
+          </Link>
+        </nav>
       </header>
 
       <section className="hero">
         <div className="hero-content">
-          <p className="eyebrow">POWERING HOMES. SUPPORTING BUSINESSES.</p>
+          <p className="eyebrow">POWERING YOUR WORLD</p>
 
           <h1>
-            Reliable electrical services.
+            IMB Tech.
             <br />
-            <span>Materials you can count on.</span>
+            <span>Powering your world.</span>
           </h1>
 
           <p className="hero-description">
-            IMB Tech connects homes, businesses, contractors and retailers with
-            electrical services, material enquiries, project quotations and convenient
-            service bookings.
+            Solar installation, all kind of wiring and electronics fixing — done
+            properly by a team you can trust, from Agbarho to every home and business
+            we serve.
           </p>
 
+          <ul className="logo-pillars" aria-label="What we do">
+            <li>
+              <Sun aria-hidden="true" size={18} />
+              Solar
+            </li>
+            <li>
+              <Zap aria-hidden="true" size={18} />
+              All kind of wiring
+            </li>
+            <li>
+              <Wrench aria-hidden="true" size={18} />
+              Electronics fixing
+            </li>
+          </ul>
+
           <div className="hero-actions">
-            <Link href="/booking" className="primary-btn">
-              Book Electrical Service
-            </Link>
-            <Link href="/products" className="secondary-btn">
-              Explore Materials
+            <a href="tel:08106127461" className="primary-btn">
+              <Phone aria-hidden="true" size={16} />
+              Call 0810 612 7461
+            </a>
+            <Link href="/booking" className="secondary-btn">
+              Book a Service
             </Link>
           </div>
 
-          <div className="hero-note">
-            Electrical installations <span>•</span> Solar <span>•</span>{" "}
-            Repairs <span>•</span> Materials
+          <div className="hero-contact">
+            <span>
+              <MapPin aria-hidden="true" size={15} />
+              Agbarho by Rimmission
+            </span>
+            <span className="hero-rating">
+              <Star aria-hidden="true" size={15} fill="currentColor" />
+              4.9 rated by customers
+            </span>
           </div>
         </div>
 
-        <div className="hero-visual">
-          <div className="visual-topline">
-            <span className="status-dot" />
-            YOUR ELECTRICAL PROJECT, SIMPLIFIED
-          </div>
-
-          <div className="electric-symbol">ϟ</div>
-
-          <div className="visual-card">
-            <div>
-              <span className="visual-label">OUR APPROACH</span>
-              <h3>From enquiry to completion.</h3>
-            </div>
-            <p>
-              Discuss your needs, request a quotation, arrange a service and keep
-              track of the next steps.
-            </p>
-          </div>
+        <div className="hero-photos">
+          <figure className="hero-photo hero-photo-main">
+            <Image
+              src="/images/work/solar-rooftop-install.jpeg"
+              alt="IMB Tech technician installing solar panels on a rooftop"
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 45vw"
+            />
+            <figcaption>
+              <Sun aria-hidden="true" size={15} />
+              Solar installation
+            </figcaption>
+          </figure>
+          <figure className="hero-photo hero-photo-side">
+            <Image
+              src="/images/work/electronics-repair-bench.jpeg"
+              alt="Technician repairing an electronic circuit board at a workbench"
+              fill
+              sizes="(max-width: 900px) 100vw, 30vw"
+            />
+            <figcaption>
+              <Wrench aria-hidden="true" size={15} />
+              Electronics fixing
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <section className="trust-strip" aria-label="Our services">
         <div>
           <strong>01</strong>
-          <span>Electrical Services</span>
-        </div>
-        <div>
-          <strong>02</strong>
           <span>Solar Installation</span>
         </div>
         <div>
+          <strong>02</strong>
+          <span>All Kind of Wiring</span>
+        </div>
+        <div>
           <strong>03</strong>
-          <span>Material Enquiries</span>
+          <span>Electronics Fixing</span>
         </div>
         <div>
           <strong>04</strong>
@@ -291,6 +343,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <RatingPreview />
 
       <section className="cta-section">
         <p className="eyebrow">LET&apos;S DISCUSS YOUR PROJECT</p>
