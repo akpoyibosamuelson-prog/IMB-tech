@@ -4,7 +4,7 @@ export const metadata = {
   title: 'IMB Tech | Electrical Services & Materials',
   description: 'Professional electrical services, materials supply, quotations and business support for homes, offices and contractors.',
   icons: {
-    icon: '/imb-logo.svg',
+    icon: '/imb-tech-logo.png',
   },
 };
 

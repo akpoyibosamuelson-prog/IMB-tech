@@ -1,29 +1,42 @@
 import Link from "next/link";
+import { ArrowRight, Cable, ShieldCheck, Sun, Zap } from "lucide-react";
+import BrandLogo from "./components/BrandLogo";
 
 const services = [
   {
     number: "01",
     title: "Electrical Installation",
+    icon: Zap,
     description:
       "Electrical installations for homes, offices, commercial buildings and new projects.",
   },
   {
     number: "02",
     title: "Repairs & Fault Diagnosis",
+    icon: ShieldCheck,
     description:
       "Identify electrical faults and request professional support for repairs and troubleshooting.",
   },
   {
     number: "03",
     title: "Wiring & Lighting",
+    icon: Cable,
     description:
       "Wiring, lighting installation, rewiring and electrical system improvements.",
   },
   {
     number: "04",
     title: "Maintenance & Inspection",
+    icon: ShieldCheck,
     description:
       "Electrical maintenance and inspections to help keep your property operating safely.",
+  },
+  {
+    number: "05",
+    title: "Solar Installation",
+    icon: Sun,
+    description:
+      "Solar panel, inverter and battery installation enquiries, with system recommendations based on your needs.",
   },
 ];
 
@@ -49,9 +62,7 @@ export default function HomePage() {
   return (
     <main className="page-shell">
       <header className="topbar">
-        <Link href="/" className="branding" aria-label="IMB Tech home">
-          <img src="/imb-logo.svg" alt="IMB Tech logo" className="brand-logo" />
-        </Link>
+        <BrandLogo className="branding" priority />
 
         <nav className="nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
@@ -98,8 +109,8 @@ export default function HomePage() {
           </div>
 
           <div className="hero-note">
-            Electrical installations <span>•</span> Repairs <span>•</span>{" "}
-            Materials <span>•</span> Project support
+            Electrical installations <span>•</span> Solar <span>•</span>{" "}
+            Repairs <span>•</span> Materials
           </div>
         </div>
 
@@ -131,19 +142,23 @@ export default function HomePage() {
         </div>
         <div>
           <strong>02</strong>
-          <span>Material Enquiries</span>
+          <span>Solar Installation</span>
         </div>
         <div>
           <strong>03</strong>
-          <span>Retail &amp; Wholesale</span>
+          <span>Material Enquiries</span>
         </div>
         <div>
           <strong>04</strong>
+          <span>Retail &amp; Wholesale</span>
+        </div>
+        <div>
+          <strong>05</strong>
           <span>Project Quotations</span>
         </div>
       </section>
 
-      <section className="content-section">
+      <section className="content-section" id="services">
         <div className="section-heading">
           <div>
             <p className="eyebrow">WHAT WE DO</p>
@@ -158,14 +173,45 @@ export default function HomePage() {
           {services.map((service) => (
             <article className="service-card" key={service.number}>
               <span className="card-number">{service.number}</span>
-              <div className="service-icon">ϟ</div>
+              <div className="service-icon">
+                <service.icon aria-hidden="true" size={24} strokeWidth={1.8} />
+              </div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
-              <Link href="/booking" className="text-link">
-                Request service →
+              <Link
+                href={`/booking?service=${encodeURIComponent(service.title)}`}
+                className="text-link service-card-link"
+              >
+                Request service <ArrowRight aria-hidden="true" size={16} />
               </Link>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="solar-highlight">
+        <div className="solar-copy">
+          <p className="eyebrow">SOLAR &amp; BACKUP POWER</p>
+          <h2>Make the switch to solar with a team that understands electrical systems.</h2>
+          <p>
+            Tell us about your property, power needs and backup goals. We’ll follow up to discuss a suitable solar
+            installation and the next steps for an assessment.
+          </p>
+          <div className="hero-actions">
+            <Link href="/booking?service=Solar%20Installation" className="primary-btn">
+              Ask about solar installation
+            </Link>
+            <Link href="/contact?enquiryType=Solar%20installation" className="secondary-btn">
+              Request a solar quote
+            </Link>
+          </div>
+        </div>
+        <div className="solar-visual" aria-hidden="true">
+          <div className="solar-sun"><Sun size={42} strokeWidth={1.4} /></div>
+          <div className="solar-panel">
+            {Array.from({ length: 12 }, (_, index) => <span key={index} />)}
+          </div>
+          <div className="solar-energy"><Zap size={18} fill="currentColor" /> Cleaner power, built around you</div>
         </div>
       </section>
 
@@ -247,7 +293,7 @@ export default function HomePage() {
       </section>
 
       <section className="cta-section">
-        <p className="eyebrow">LET'S DISCUSS YOUR PROJECT</p>
+        <p className="eyebrow">LET&apos;S DISCUSS YOUR PROJECT</p>
         <h2>Have a job to complete or materials to source?</h2>
         <p>
           Tell us what you need. Request a service appointment, ask about electrical
@@ -265,9 +311,7 @@ export default function HomePage() {
 
       <footer className="site-footer">
         <div>
-          <Link href="/" className="branding footer-brand">
-            <img src="/imb-logo.svg" alt="IMB Tech logo" className="brand-logo" />
-          </Link>
+          <BrandLogo className="footer-brand" />
           <p>
             Electrical services, materials and project support for homes, businesses
             and contractors.

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from '../components/BrandLogo';
 
 const serviceCatalog = [
   {
@@ -10,7 +11,7 @@ const serviceCatalog = [
     description: 'Repair services for faulty wiring, damaged sockets, lights, switches and recurring electrical issues.',
   },
   {
-    title: 'Fault Diagnosis &amp; Troubleshooting',
+    title: 'Fault Diagnosis & Troubleshooting',
     description: 'Professional diagnosis of power problems, system faults, tripping circuits and technical issues.',
   },
   {
@@ -18,12 +19,20 @@ const serviceCatalog = [
     description: 'Preventive electrical maintenance and support to reduce downtime and improve reliability.',
   },
   {
-    title: 'Wiring &amp; Rewiring',
+    title: 'Wiring & Rewiring',
     description: 'Full wiring support, upgrades and rewiring for older or expanding properties.',
   },
   {
     title: 'Lighting',
     description: 'Interior and exterior lighting installations, replacements and energy-efficient upgrades.',
+  },
+  {
+    title: 'Solar Installation',
+    description: 'Solar panel, inverter and battery installation enquiries, with recommendations based on your property and backup needs.',
+  },
+  {
+    title: 'Solar Maintenance',
+    description: 'Enquire about inspection and maintenance support for solar panels, inverters and battery systems.',
   },
 ];
 
@@ -31,13 +40,7 @@ export default function ServicesPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
-        <Link href="/" className="branding" aria-label="IMB Tech home">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services &amp; Materials</div>
-          </div>
-        </Link>
+        <BrandLogo />
 
         <nav className="nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
@@ -67,20 +70,14 @@ export default function ServicesPage() {
           <article className="service-item" key={item.title}>
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-            <Link href="/booking" className="primary-btn">Book this service</Link>
+            <Link href={`/booking?service=${encodeURIComponent(item.title)}`} className="primary-btn">Book this service</Link>
           </article>
         ))}
       </section>
 
       <footer className="site-footer">
         <div>
-          <div className="branding footer-brand">
-            <div className="brand-mark">IMB</div>
-            <div>
-              <div className="brand-name">IMB Tech</div>
-              <div className="brand-tag">Electrical Services &amp; Materials</div>
-            </div>
-          </div>
+          <BrandLogo className="footer-brand" />
         </div>
 
         <div>
@@ -100,8 +97,8 @@ export default function ServicesPage() {
         <div>
           <h4>Contact</h4>
           <span>hello@imbtech.co</span>
-          <span>+27 (0) 11 123 4567</span>
-          <span>WhatsApp: available on request</span>
+          <a href="tel:+2348106127461">+234 810 612 7461</a>
+          <a href="https://wa.me/2348106127461" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
         </div>
       </footer>
     </main>

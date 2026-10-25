@@ -1,3 +1,5 @@
+import BrandLogo from '../components/BrandLogo';
+
 const faqs = [
   {
     question: 'Do you support both residential and commercial jobs?',
@@ -25,13 +27,7 @@ export default function FAQPage() {
   return (
     <main className="site-shell inner-page">
       <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services & Materials</div>
-          </div>
-        </div>
+        <BrandLogo className="brand-wrap" />
 
         <nav className="nav">
           <a href="/">Home</a>

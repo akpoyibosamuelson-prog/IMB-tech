@@ -1,8 +1,10 @@
+import BrandLogo from '../components/BrandLogo';
+
 export default function AdminPage() {
   return (
     <main className="inner-shell page-shell admin-shell">
       <aside className="admin-sidebar">
-        <h3>IMB Tech</h3>
+        <BrandLogo />
         <nav>
           <a href="#">Dashboard</a>
           <a href="#">Bookings</a>

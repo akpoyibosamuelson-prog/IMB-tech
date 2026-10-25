@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from '../components/BrandLogo';
 
 const stats = [
   { value: '1,200+', label: 'service appointments supported' },
@@ -16,13 +17,7 @@ export default function AboutPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
-        <Link href="/" className="branding" aria-label="IMB Tech home">
-          <div className="brand-mark">IMB</div>
-          <div>
-            <div className="brand-name">IMB Tech</div>
-            <div className="brand-tag">Electrical Services &amp; Materials</div>
-          </div>
-        </Link>
+        <BrandLogo />
 
         <nav className="nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
@@ -83,13 +78,7 @@ export default function AboutPage() {
 
       <footer className="site-footer">
         <div>
-          <div className="branding footer-brand">
-            <div className="brand-mark">IMB</div>
-            <div>
-              <div className="brand-name">IMB Tech</div>
-              <div className="brand-tag">Electrical Services &amp; Materials</div>
-            </div>
-          </div>
+          <BrandLogo className="footer-brand" />
         </div>
 
         <div>
@@ -109,8 +98,8 @@ export default function AboutPage() {
         <div>
           <h4>Contact</h4>
           <span>hello@imbtech.co</span>
-          <span>+27 (0) 11 123 4567</span>
-          <span>Johannesburg, South Africa</span>
+          <a href="tel:+2348106127461">+234 810 612 7461</a>
+          <a href="https://wa.me/2348106127461" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
         </div>
       </footer>
     </main>

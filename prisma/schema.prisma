@@ -7,92 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  CUSTOMER
-  RETAILER
-  WHOLESALER
-  STAFF
-  ADMIN
-  OWNER
-}
-
-enum UserStatus {
-  PENDING
-  ACTIVE
-  SUSPENDED
-}
-
-enum BookingStatus {
-  NEW_REQUEST
-  AWAITING_REVIEW
-  QUOTATION_PENDING
-  AWAITING_CUSTOMER_APPROVAL
-  CONFIRMED
-  ASSIGNED
-  IN_PROGRESS
-  COMPLETED
-  CANCELLED
-  RESCHEDULED
-}
-
-enum QuoteStatus {
-  DRAFT
-  SENT
-  VIEWED
-  AWAITING_APPROVAL
-  ACCEPTED
-  REJECTED
-  EXPIRED
-  CONVERTED_TO_JOB
-  CONVERTED_TO_ORDER
-}
-
-enum OrderStatus {
-  PENDING
-  AWAITING_PAYMENT
-  PAYMENT_VERIFICATION_PENDING
-  PAID
-  CONFIRMED
-  PROCESSING
-  READY_FOR_DISPATCH
-  DISPATCHED
-  DELIVERED
-  PARTIALLY_FULFILLED
-  CANCELLED
-  REFUNDED
-}
-
-enum InvoiceStatus {
-  DRAFT
-  ISSUED
-  PARTIALLY_PAID
-  PAID
-  OVERDUE
-  CANCELLED
-  REFUNDED
-}
-
-enum PaymentStatus {
-  UNPAID
-  PENDING
-  VERIFICATION_PENDING
-  PAID
-  PARTIALLY_PAID
-  FAILED
-  OVERDUE
-  REFUNDED
-  PARTIALLY_REFUNDED
-}
-
 model User {
   id            String      @id @default(cuid())
   name          String
   email         String      @unique
   passwordHash  String
   phone         String?
-  role          Role        @default(CUSTOMER)
+  role          String      @default("CUSTOMER")
   businessName  String?
-  status        UserStatus  @default(ACTIVE)
+  status        String      @default("ACTIVE")
   createdAt     DateTime    @default(now())
   bookings      Booking[]
   orders        Order[]
@@ -156,7 +79,8 @@ model Booking {
   urgency            String?
   contactMethod      String?
   notes              String?
-  status             BookingStatus @default(NEW_REQUEST)
+  consent            Boolean       @default(false)
+  status             String        @default("NEW_REQUEST")
   priceText          String?
   createdAt          DateTime      @default(now())
 }
@@ -187,7 +111,7 @@ model Quote {
   customerEmail    String
   subject          String
   totalAmount      Float
-  status           QuoteStatus @default(DRAFT)
+  status         String      @default("DRAFT")
   validityDays     Int?
   notes            String?
   createdAt        DateTime     @default(now())
@@ -202,7 +126,7 @@ model Order {
   email          String
   phone          String
   totalAmount    Float
-  status         OrderStatus @default(PENDING)
+  status         String      @default("PENDING")
   notes          String?
   createdAt      DateTime    @default(now())
   orderItems     OrderItem[]
@@ -227,7 +151,7 @@ model Invoice {
   customerEmail  String
   amountDue      Float
   amountPaid     Float         @default(0)
-  status         InvoiceStatus @default(ISSUED)
+  status         String        @default("ISSUED")
   dueDate        DateTime?
   userId         String?
   user           User?         @relation(fields: [userId], references: [id])

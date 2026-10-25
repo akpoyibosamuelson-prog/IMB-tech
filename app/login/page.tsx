@@ -1,7 +1,10 @@
+import BrandLogo from '../components/BrandLogo';
+
 export default function LoginPage() {
   return (
     <main className="inner-shell page-shell auth-shell">
       <section className="auth-panel">
+        <BrandLogo />
         <div className="auth-header">
           <p className="eyebrow">Secure access</p>
           <h1>IMB Tech Login</h1>
