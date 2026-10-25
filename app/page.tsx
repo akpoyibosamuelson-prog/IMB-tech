@@ -69,6 +69,7 @@ export default function HomePage() {
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
           <Link href="/products">Products</Link>
+          <Link href="/catalogue">Catalogue</Link>
           <Link href="/booking">Booking</Link>
           <Link href="/contact">Contact</Link>
         </nav>

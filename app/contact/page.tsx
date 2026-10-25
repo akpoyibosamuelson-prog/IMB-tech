@@ -5,12 +5,13 @@ import Link from 'next/link';
 import BrandLogo from '../components/BrandLogo';
 
 const enquiryOptions = [
-  'Domestic electrical works',
-  'Commercial maintenance and inspections',
-  'Materials and supply enquiries',
-  'Project quotations and contractor support',
+  'Service booking',
+  'Project quotation',
+  'Materials enquiry',
   'Solar installation',
   'Solar maintenance',
+  'Electronics repair',
+  'General support',
 ];
 
 export default function ContactPage() {
@@ -105,12 +106,9 @@ export default function ContactPage() {
               <option value="" disabled>
                 Select an option
               </option>
-              <option>Service booking</option>
-              <option>Project quotation</option>
-              <option>Materials enquiry</option>
-              <option>Solar installation</option>
-              <option>Solar maintenance</option>
-              <option>General support</option>
+              {enquiryOptions.map((option) => (
+                <option key={option}>{option}</option>
+              ))}
             </select>
           </label>
 
