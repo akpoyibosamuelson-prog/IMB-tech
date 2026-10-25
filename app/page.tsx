@@ -75,7 +75,7 @@ const features = [
 
 export default function HomePage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell brand-theme">
       <header className="topbar">
         <BrandLogo className="branding" priority />
 

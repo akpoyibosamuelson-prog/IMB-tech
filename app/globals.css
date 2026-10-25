@@ -2482,3 +2482,240 @@ body {
     margin-top: 0;
   }
 }
+
+/* IMBtech brand theme: black, gold and solar blue, matching the logo */
+.brand-theme {
+  --background: #070707;
+  --surface: #111111;
+  --text: #f7f4ea;
+  --muted: #b9b3a2;
+  --primary: #f5b301;
+  --dark: #000000;
+  --border: rgba(245, 179, 1, 0.22);
+  --blue-soft: rgba(245, 179, 1, 0.1);
+  --gold: #f5b301;
+  --gold-bright: #ffd23f;
+  --solar-blue: #2f6bff;
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 12px 34px rgba(0, 0, 0, 0.5);
+  color: var(--text);
+  background:
+    radial-gradient(circle at 88% 4%, rgba(255, 196, 0, 0.22), transparent 26rem),
+    radial-gradient(circle at 6% 38%, rgba(47, 107, 255, 0.12), transparent 30rem),
+    radial-gradient(circle at 92% 72%, rgba(245, 179, 1, 0.12), transparent 28rem),
+    repeating-radial-gradient(circle at 50% 18%, transparent 0 118px, rgba(245, 179, 1, 0.05) 119px 120px),
+    linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+  box-shadow: none;
+}
+
+.brand-theme h1,
+.brand-theme h2,
+.brand-theme h3,
+.brand-theme strong {
+  color: #ffffff;
+}
+
+.brand-theme p,
+.brand-theme li,
+.brand-theme figcaption {
+  color: var(--muted);
+}
+
+.brand-theme .eyebrow {
+  color: var(--gold);
+  letter-spacing: 0.22em;
+}
+
+.brand-theme h1 span,
+.brand-theme .brand-name span,
+.brand-theme .rating-score {
+  color: var(--gold);
+}
+
+.brand-theme .topbar {
+  background: rgba(8, 8, 8, 0.88);
+  border-bottom: 1px solid rgba(245, 179, 1, 0.28);
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.brand-theme .brand-name {
+  color: #ffffff;
+}
+
+.brand-theme .brand-tag,
+.brand-theme .nav a {
+  color: #d9d3c2;
+}
+
+.brand-theme .nav a:hover,
+.brand-theme .nav a:focus-visible {
+  color: var(--gold);
+}
+
+.brand-theme .corner-nav {
+  background: rgba(20, 18, 12, 0.9);
+  border: 1px solid rgba(245, 179, 1, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.brand-theme .corner-link {
+  background: transparent;
+  color: #f7f4ea;
+  border: 1px solid rgba(245, 179, 1, 0.45);
+}
+
+.brand-theme .corner-link:hover,
+.brand-theme .corner-link:focus-visible {
+  background: rgba(245, 179, 1, 0.12);
+  color: var(--gold-bright);
+}
+
+.brand-theme .corner-link-primary,
+.brand-theme .primary-btn {
+  background: linear-gradient(135deg, #ffd23f 0%, #f5b301 55%, #d99400 100%);
+  color: #0a0a0a;
+  border: 1px solid #ffd23f;
+  box-shadow: 0 8px 24px rgba(245, 179, 1, 0.3);
+}
+
+.brand-theme .corner-link-primary:hover,
+.brand-theme .primary-btn:hover {
+  background: linear-gradient(135deg, #ffe066 0%, #ffc21a 100%);
+  color: #000;
+}
+
+.brand-theme .secondary-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.brand-theme .secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+.brand-theme .hero {
+  background: transparent;
+}
+
+.brand-theme .logo-pillars li {
+  background: rgba(245, 179, 1, 0.08);
+  border: 1px solid rgba(245, 179, 1, 0.4);
+  color: #ffffff;
+}
+
+.brand-theme .logo-pillars svg,
+.brand-theme .hero-contact svg,
+.brand-theme .hero-photo figcaption svg {
+  color: var(--gold);
+}
+
+.brand-theme .hero-photo {
+  border: 2px solid rgba(245, 179, 1, 0.55);
+  box-shadow: 0 0 0 6px rgba(245, 179, 1, 0.06), 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.brand-theme .hero-photo figcaption {
+  background: rgba(0, 0, 0, 0.78);
+  color: #ffffff;
+  border: 1px solid rgba(245, 179, 1, 0.4);
+}
+
+.brand-theme .hero-rating,
+.brand-theme .hero-contact a {
+  color: #ffffff;
+}
+
+.brand-theme .trust-strip {
+  background: linear-gradient(90deg, #f5b301, #ffd23f, #f5b301);
+  border: 0;
+}
+
+.brand-theme .trust-strip,
+.brand-theme .trust-strip * {
+  color: #0a0a0a;
+}
+
+.brand-theme .content-section,
+.brand-theme .materials-section,
+.brand-theme .rating-section {
+  background: transparent;
+}
+
+.brand-theme .service-card,
+.brand-theme .feature-card,
+.brand-theme .materials-panel,
+.brand-theme .material-row,
+.brand-theme .rating-summary,
+.brand-theme .review-card {
+  background: linear-gradient(160deg, rgba(28, 26, 20, 0.95), rgba(14, 14, 14, 0.95));
+  border: 1px solid rgba(245, 179, 1, 0.2);
+  box-shadow: var(--shadow-card);
+}
+
+.brand-theme .service-card:hover,
+.brand-theme .feature-card:hover,
+.brand-theme .review-card:hover {
+  border-color: rgba(245, 179, 1, 0.6);
+}
+
+.brand-theme .service-icon,
+.brand-theme .material-icon {
+  background: rgba(245, 179, 1, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(245, 179, 1, 0.35);
+}
+
+.brand-theme .card-number {
+  color: rgba(245, 179, 1, 0.55);
+}
+
+.brand-theme .text-link {
+  color: var(--gold);
+}
+
+.brand-theme .solar-highlight {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255, 196, 0, 0.25), transparent 22rem),
+    linear-gradient(135deg, #0d1530 0%, #0a0a0a 70%);
+  border-top: 1px solid rgba(245, 179, 1, 0.25);
+  border-bottom: 1px solid rgba(245, 179, 1, 0.25);
+}
+
+.brand-theme .rating-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.brand-theme .rating-fill,
+.brand-theme .star-on {
+  background-color: var(--gold);
+  color: var(--gold);
+  fill: var(--gold);
+}
+
+.brand-theme .star-on {
+  background-color: transparent;
+}
+
+.brand-theme .review-card blockquote {
+  color: #ece6d4;
+}
+
+.brand-theme .cta-section {
+  background:
+    radial-gradient(circle at 15% 50%, rgba(255, 210, 63, 0.35), transparent 20rem),
+    linear-gradient(120deg, #1a1405 0%, #000 60%, #101b3d 100%);
+  border: 1px solid rgba(245, 179, 1, 0.35);
+}
+
+.brand-theme .site-footer {
+  background: #000;
+  border-top: 2px solid var(--gold);
+}
+
+.brand-theme .site-footer a:hover {
+  color: var(--gold);
+}
