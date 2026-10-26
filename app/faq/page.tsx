@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: 'Can I upload photos of a damaged electrical item?',
-    answer: 'Yes. Clients can upload relevant photos so the team can better understand the issue, estimate requirements and prepare support.',
+    answer: 'The online contact form does not accept photo attachments. Call or message IMB Tech to ask how to share photos for your enquiry.',
   },
   {
     question: 'How long does a quotation take?',

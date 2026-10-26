@@ -1,20 +1,7 @@
 import Link from 'next/link';
 import BrandLogo from '../../components/BrandLogo';
 
-type CheckoutStatusProps = {
-  searchParams: {
-    reference?: string;
-    amount?: string;
-    order?: string;
-  };
-};
-
-export default function CheckoutStatusPage({ searchParams }: CheckoutStatusProps) {
-  const reference = searchParams.reference;
-  const parsedAmount = Number(searchParams.amount);
-  const amount = Number.isFinite(parsedAmount) && parsedAmount > 0 ? parsedAmount : null;
-  const order = searchParams.order;
-
+export default function CheckoutStatusPage() {
   return (
     <main className="page-shell info-page">
       <header className="topbar">
@@ -23,39 +10,17 @@ export default function CheckoutStatusPage({ searchParams }: CheckoutStatusProps
 
       <section className="page-header">
         <p className="eyebrow">Payment status</p>
-        <h1>Reference created — payment not processed</h1>
+        <h1>No payment has been confirmed.</h1>
         <p>
-          This reference is not saved to an order. No money was charged or verified, and it is not a payment receipt.
+          This page cannot verify a payment. Do not treat a URL, reference or screenshot as proof that an order was paid.
         </p>
       </section>
 
-      {reference && (
-        <section className="checkout-success">
-          <div className="summary-box">
-            <strong>Reference:</strong>
-            <p>{reference}</p>
-          </div>
-          {amount !== null && (
-            <div className="summary-box">
-              <strong>Requested amount:</strong>
-              <p>₦{amount.toLocaleString()}</p>
-            </div>
-          )}
-          {order && (
-            <div className="summary-box">
-              <strong>Order:</strong>
-              <p>{order}</p>
-            </div>
-          )}
-        </section>
-      )}
-
       <section className="page-header">
         <p>
-          Contact IMB Tech to confirm the correct amount and payment instructions. Do not treat this page as confirmation
-          that payment has been received.
+          Contact IMB Tech to confirm availability and payment instructions.
         </p>
-        <Link href="/checkout" className="primary-btn">Return to checkout</Link>
+        <Link href="/contact" className="primary-btn">Contact IMB Tech</Link>
       </section>
     </main>
   );

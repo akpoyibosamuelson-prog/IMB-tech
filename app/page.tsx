@@ -2,20 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Boxes,
   Cable,
   MapPin,
   Phone,
-  ReceiptText,
   ShieldCheck,
-  Star,
-  Store,
   Sun,
   Wrench,
   Zap,
 } from "lucide-react";
 import BrandLogo from "./components/BrandLogo";
-import RatingPreview from "./components/RatingPreview";
 
 const services = [
   {
@@ -89,20 +84,6 @@ export default function HomePage() {
           <Link href="/contact">Contact</Link>
         </nav>
 
-        <nav className="corner-nav" aria-label="Business navigation">
-          <Link href="/catalogue" className="corner-link corner-link-primary">
-            <Store aria-hidden="true" size={16} />
-            Marketplace
-          </Link>
-          <Link href="/admin#inventory" className="corner-link">
-            <Boxes aria-hidden="true" size={16} />
-            Inventory
-          </Link>
-          <Link href="/admin#expenses" className="corner-link">
-            <ReceiptText aria-hidden="true" size={16} />
-            Expenses
-          </Link>
-        </nav>
       </header>
 
       <section className="hero">
@@ -150,10 +131,6 @@ export default function HomePage() {
             <span>
               <MapPin aria-hidden="true" size={15} />
               Agbarho by Rimmission
-            </span>
-            <span className="hero-rating">
-              <Star aria-hidden="true" size={15} fill="currentColor" />
-              4.9 rated by customers
             </span>
           </div>
         </div>
@@ -344,8 +321,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RatingPreview />
-
       <section className="cta-section">
         <p className="eyebrow">LET&apos;S DISCUSS YOUR PROJECT</p>
         <h2>Have a job to complete or materials to source?</h2>
@@ -387,11 +362,9 @@ export default function HomePage() {
         </div>
 
         <div>
-          <h4>Business Portal</h4>
-          <p>
-            Inventory, orders, bookings and payment management can be provided through
-            a separate secured owner dashboard.
-          </p>
+          <h4>Need help?</h4>
+          <p>Contact IMB Tech about service bookings, materials and project quotations.</p>
+          <Link href="/contact">Contact the team</Link>
         </div>
       </footer>
 
