@@ -115,7 +115,7 @@ export const catalogueItems: CatalogueItem[] = [
     category: 'Electronics & Services',
     image: '/images/work/solar-rooftop-install.jpeg',
     summary: 'Complete solar design and installation, from load assessment to commissioning and handover.',
-    highlights: ['Free load assessment', 'Safe rooftop mounting', 'Maintenance support after install'],
+    highlights: ['Discuss your load and backup requirements', 'Safe rooftop mounting', 'Ask about maintenance support after installation'],
     badge: 'Service',
     supply: 'On-site service',
     enquiryType: 'Solar installation',

@@ -1,4 +1,5 @@
 import BrandLogo from '../components/BrandLogo';
+import Link from 'next/link';
 
 export default function LoginPage() {
   return (
@@ -6,25 +7,16 @@ export default function LoginPage() {
       <section className="auth-panel">
         <BrandLogo />
         <div className="auth-header">
-          <p className="eyebrow">Secure access</p>
-          <h1>IMB Tech Login</h1>
+          <p className="eyebrow">Account access</p>
+          <h1>Staff sign-in is not active yet.</h1>
         </div>
 
-        <form className="contact-form">
-          <label>
-            Email address
-            <input type="email" placeholder="name@company.com" />
-          </label>
-          <label>
-            Password
-            <input type="password" placeholder="Enter your password" />
-          </label>
-          <button type="submit" className="btn btn-gold full-width">Sign in</button>
-        </form>
-
+        <p>
+          Secure staff accounts have not been configured. Do not enter a password on this page. Contact the owner for
+          business access.
+        </p>
         <div className="auth-links">
-          <a href="#">Forgot password?</a>
-          <a href="/admin">Owner / admin access</a>
+          <Link href="/contact">Contact IMB Tech</Link>
         </div>
       </section>
     </main>

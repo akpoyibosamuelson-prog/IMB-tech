@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Award, BadgeCheck, Headphones, ShieldCheck, Truck, Wrench } from 'lucide-react';
+import { Headphones, ShieldCheck, Truck, Wrench } from 'lucide-react';
 import BrandLogo from '../components/BrandLogo';
 import CatalogueGrid from './CatalogueGrid';
 import styles from './catalogue.module.css';
@@ -26,10 +26,10 @@ const proofOfWork = [
 ];
 
 const reasons = [
-  { icon: BadgeCheck, title: 'Quality-checked stock', text: 'Every item is inspected before it leaves our store.' },
+  { icon: ShieldCheck, title: 'Product information', text: 'Confirm specifications, availability and pricing with IMB Tech before ordering.' },
   { icon: Wrench, title: 'Supply + installation', text: 'Buy the materials and let our technicians fit them.' },
-  { icon: Truck, title: 'Retail & wholesale', text: 'Single units for homes, bulk packs for contractors.' },
-  { icon: Headphones, title: 'After-sales support', text: 'Real people on phone and WhatsApp when you need help.' },
+  { icon: Truck, title: 'Retail & wholesale', text: 'Ask the team about quantities and project requirements.' },
+  { icon: Headphones, title: 'Direct support', text: 'Contact IMB Tech by phone or WhatsApp with product and service questions.' },
 ];
 
 export default function CataloguePage() {

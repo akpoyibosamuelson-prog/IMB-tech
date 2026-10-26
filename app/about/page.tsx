@@ -1,12 +1,6 @@
 import Link from 'next/link';
 import BrandLogo from '../components/BrandLogo';
 
-const stats = [
-  { value: '1,200+', label: 'service appointments supported' },
-  { value: '12+', label: 'years of practical electrical experience' },
-  { value: '24/7', label: 'support for urgent fault enquiries' },
-];
-
 const principles = [
   'Safety-first electrical work and responsible workmanship.',
   'Clear quotations and honest recommendations.',
@@ -40,15 +34,6 @@ export default function AboutPage() {
           IMB Tech supports residential, commercial and project-based customers with complete
           electrical solutions, from installation and repairs to materials supply and expert advice.
         </p>
-      </section>
-
-      <section className="stat-grid">
-        {stats.map((item) => (
-          <div className="stat-box" key={item.label}>
-            <strong>{item.value}</strong>
-            <span>{item.label}</span>
-          </div>
-        ))}
       </section>
 
       <section className="section-block">
